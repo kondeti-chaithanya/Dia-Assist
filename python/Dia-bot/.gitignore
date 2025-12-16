@@ -1,0 +1,26 @@
+# Virtual environments
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment variables
+.env
+
+# Vector DB (FAISS + Pickle files)
+vector_index/
+*.pkl
+*.index
+
+# PDFs (optional—keep if needed)
+data/*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
