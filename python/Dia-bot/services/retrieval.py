@@ -1,24 +1,27 @@
 import os
 import pickle
 import numpy as np
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
+from fastembed import TextEmbedding
 
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+# Load FastEmbed MiniLM model (small + accurate)
+embedder = TextEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
-INDEX = None  # Will be loaded lazily after ingestion
+INDEX = None  # Cached vector index
 
 
 def load_index():
+    """
+    Load the stored PDF embeddings once.
+    """
     global INDEX
 
-    if INDEX is None:
-        if not os.path.exists("vector_index/store.pkl"):
-            raise FileNotFoundError(
-                "Vector index store.pkl not found. Run ingestion first."
-            )
+    store_path = "vector_index/store.pkl"
 
-        with open("vector_index/store.pkl", "rb") as f:
+    if INDEX is None:
+        if not os.path.exists(store_path):
+            raise FileNotFoundError(" vector_index/store.pkl not found. Run ingestion first.")
+
+        with open(store_path, "rb") as f:
             INDEX = pickle.load(f)
 
     return INDEX
@@ -26,18 +29,24 @@ def load_index():
 
 def hybrid_search(query: str, top_k: int = 5):
     """
-    Returns top_k relevant chunks from the ingested PDF.
+    Vector search using FastEmbed + cosine similarity.
+    Returns top_k most relevant PDF chunks.
     """
 
     index = load_index()
+    embeddings = np.array(index["embeddings"])  # (N, 384)
+    chunks = index["chunks"]  # original text segments
 
-    embeddings = index["embeddings"]
-    chunks = index["chunks"]
+    # --- Embed query ---
+    q_vec = list(embedder.embed([query]))[0]
+    q_vec = np.array(q_vec)
 
-    q_vec = model.encode([query])
-    scores = cosine_similarity(q_vec, embeddings)[0]
+    # --- Cosine similarity ---
+    scores = np.dot(embeddings, q_vec) / (
+        np.linalg.norm(embeddings, axis=1) * np.linalg.norm(q_vec)
+    )
 
+    # --- Pick top K results ---
     top_idx = np.argsort(scores)[::-1][:top_k]
 
-    results = [chunks[i] for i in top_idx]
-    return results
+    return [chunks[i] for i in top_idx]
