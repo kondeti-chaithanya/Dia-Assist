@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.env
+
+# ML / Data files
+*.pkl
+*.csv
+
+# Docker artifacts
+*.tar
+
+# OS files
+.DS_Store
