@@ -67,8 +67,8 @@ Dia-Assist/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/YOUR_USERNAME/Dia-Assist-Frontend.git
-cd Dia-Assist-Frontend/React
+https://github.com/kondeti-chaithanya/Dia-Assist.git
+cd Dia-Assist/React
 ```
 
 2. **Install dependencies**
