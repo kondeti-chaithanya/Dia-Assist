@@ -6,7 +6,7 @@ class ChatRequest(BaseModel):
 
 
 class ChatResponse(BaseModel):
-    answer: List[str]
+    answer: str
 
 class HistoryResponse(BaseModel):
     chat_history: List[Dict[str, Any]]

@@ -5,12 +5,13 @@ FROM python:3.12-slim AS builder
 
 WORKDIR /app
 
-# Install minimal system deps required for fastembed + numpy
+# Install system dependencies required for building Python packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    git build-essential \
+    git \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies into /install
+# Copy requirements and install into a custom directory
 COPY requirements.txt .
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
@@ -22,17 +23,17 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-# Copy installed packages from builder
+# Copy only installed Python packages from builder
 COPY --from=builder /install /usr/local
 
-# Copy backend source code + data folder + vector index folder
+# Copy application source code
 COPY . .
 
-# Ensure vector_index folder exists (if empty)
+# Ensure vector index directory exists
 RUN mkdir -p vector_index
 
-# Expose API port
+# Expose FastAPI port
 EXPOSE 8000
 
-# Start FastAPI
+# Run FastAPI app
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

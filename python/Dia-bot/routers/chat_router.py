@@ -7,7 +7,7 @@ router = APIRouter()
 
 chat_history = []
 
-@router.post("/chat", response_model=ChatResponse)
+@router.post("", response_model=ChatResponse)
 def chat(req: ChatRequest):
 
     retrieved = hybrid_search(req.question)
@@ -22,6 +22,6 @@ def chat(req: ChatRequest):
     return ChatResponse(answer=answer)
 
 
-@router.get("/history", response_model=HistoryResponse)
+@router.get("get_histoy", response_model=HistoryResponse)
 def get_history():
     return HistoryResponse(chat_history=chat_history)

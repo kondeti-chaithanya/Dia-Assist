@@ -1,45 +1,24 @@
-# -----------------------------
-# PYTHON CACHE / BYTECODE
-# -----------------------------
+# Python cache
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
 
-# -----------------------------
-# VIRTUAL ENVIRONMENTS
-# -----------------------------
-.venv/
+# Virtual environments
 venv/
-ENV/
-env/
+.venv/
 
-# -----------------------------
-# LOG FILES
-# -----------------------------
-*.log
 
-# -----------------------------
-# PROJECT SECRETS
-# -----------------------------
-.env
 
-# -----------------------------
-# VECTOR INDEX (ONLY LARGE FILES)
-# do NOT ignore store.pkl
-# -----------------------------
-vector_index/*.index
-vector_index/*.faiss
-
-# -----------------------------
-# GIT FILES
-# -----------------------------
+# Git
 .git/
 .gitignore
 
-# -----------------------------
-# OS / EDITOR FILES
-# -----------------------------
+# OS files
 .DS_Store
+Thumbs.db
+
+# IDE settings
 .vscode/
 .idea/
+
+# Logs
+*.log
