@@ -11,7 +11,7 @@ Dia-Assist is a full-stack application that combines a modern React frontend wit
 - **Chat Assistant**: Interactive chatbot for health guidance
 - **History Tracking**: Historical data visualization and analysis
 
-##  Project Structure
+## Project Structure
 
 ```
 Dia-Assist/
