@@ -2,7 +2,7 @@
 
 A comprehensive health and diet management platform designed to help users track their dietary habits, predict health outcomes, and manage their wellness journey.
 
-## 📋 Project Overview
+##  Project Overview
 
 Dia-Assist is a full-stack application that combines a modern React frontend with a Java backend and Python analytics to provide users with:
 - **Dashboard**: Real-time health metrics and statistics
@@ -11,7 +11,7 @@ Dia-Assist is a full-stack application that combines a modern React frontend wit
 - **Chat Assistant**: Interactive chatbot for health guidance
 - **History Tracking**: Historical data visualization and analysis
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 Dia-Assist/
@@ -32,7 +32,7 @@ Dia-Assist/
 └── README.md            # Project documentation
 ```
 
-## 🎨 Frontend Features (React + TypeScript + Vite)
+##  Frontend Features (React + TypeScript + Vite)
 
 ### Pages Implemented:
 - **Home Page** - Landing page with overview and CTA
@@ -49,14 +49,14 @@ Dia-Assist/
 - **Context API** for state management
 - **CSS Modules** for styling
 
-## 🔐 Authentication
+##  Authentication
 
 - JWT-based authentication
 - Protected routes for authenticated users
 - Login and Registration pages
 - Secure API endpoints
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Node.js (v16+)
@@ -92,7 +92,7 @@ npm run dev
 npm run build
 ```
 
-## 📁 Key Directories
+##  Key Directories
 
 | Directory | Purpose |
 |-----------|---------|
@@ -104,7 +104,7 @@ npm run build
 | `src/util` | Utility functions |
 | `src/lib` | Mock data and libraries |
 
-## 👥 Team & Contributions
+##  Team & Contributions
 
 **Vicky** - Full Stack Developer
 - Dashboard Page & Components
@@ -117,7 +117,7 @@ npm run build
 - Diet Plan Page & Cards
 - History Page & Components
 
-## 📦 API Endpoints
+##  API Endpoints
 
 ### Authentication
 - `POST /api/auth/register` - User registration
@@ -162,7 +162,7 @@ npm run type-check
 npm run lint
 ```
 
-## 📝 File Structure Details
+##  File Structure Details
 
 ### Components
 - `Header.tsx` - Navigation header
@@ -180,14 +180,14 @@ npm run lint
 - `pages/history/` - Historical data view
 - `pages/auth/` - Login and registration
 
-## 🔒 Security
+##  Security
 
 - JWT token-based authentication
 - Protected API endpoints
 - Secure credential storage
 - CORS enabled for trusted domains
 
-## 📊 Features Roadmap
+##  Features Roadmap
 
 - [ ] Advanced analytics dashboard
 - [ ] Mobile app version
@@ -195,7 +195,7 @@ npm run lint
 - [ ] Nutritionist recommendations
 - [ ] Social sharing features
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -203,22 +203,5 @@ npm run lint
 4. Push to branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📞 Contact
-
-For questions or support, please contact:
-- Vicky - [Email]
-- Sahithi - [Email]
-
-## 🙏 Acknowledgments
-
-- React community for excellent documentation
-- Vite for blazing fast development
-- All contributors and testers
-
----
 
 **Last Updated:** December 2025
