@@ -104,19 +104,6 @@ npm run build
 | `src/util` | Utility functions |
 | `src/lib` | Mock data and libraries |
 
-##  Team & Contributions
-
-**Vicky** - Full Stack Developer
-- Dashboard Page & Components
-- Predict Page & Form
-- Chatbot Implementation
-- Project Coordination
-
-**Sahithi** - Frontend Developer
-- Home Page & Hero Section
-- Diet Plan Page & Cards
-- History Page & Components
-
 ##  API Endpoints
 
 ### Authentication
