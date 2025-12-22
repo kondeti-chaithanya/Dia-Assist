@@ -44,13 +44,13 @@ public class UserServiceImpl implements UserService {
                 user.getId()
         );
 
-        // 👤 Prepare user DTO
+        //  Prepare user DTO
         UserResponseDTO userDto = new UserResponseDTO();
         userDto.setId(user.getId());
         userDto.setName(user.getName());
         userDto.setEmail(user.getEmail());
 
-        // 📦 Final response
+        //  Final response
         Map<String, Object> response = new HashMap<>();
         response.put("token", token);
         response.put("user", userDto);

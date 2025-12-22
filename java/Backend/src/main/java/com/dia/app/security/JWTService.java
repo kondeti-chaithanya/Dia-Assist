@@ -28,15 +28,15 @@ public class JWTService {
     private static final long JWT_EXPIRATION =
             1000L * 60 * 60 * 24; // 24 hours
 
-    // ✅ GENERATE TOKEN
+    // GENERATE TOKEN
     public String generateToken(String email, Long userId) {
 
         Map<String, Object> claims = new HashMap<>();
-        claims.put("id", userId);   // 🔥 ADD USER ID
+        claims.put("id", userId);
 
         return Jwts.builder()
-                .setClaims(claims)               // 👈 custom claims
-                .setSubject(email)               // 👈 email
+                .setClaims(claims)
+                .setSubject(email)
                 .setIssuedAt(new Date())
                 .setExpiration(
                         new Date(System.currentTimeMillis() + JWT_EXPIRATION)
@@ -46,7 +46,7 @@ public class JWTService {
     }
 
 
-    // ✅ VALIDATE TOKEN
+    //VALIDATE TOKEN
     public String extractEmail(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(SECRET) // SAME KEY
@@ -56,7 +56,7 @@ public class JWTService {
                 .getSubject();
     }
 
-    // ✅ LOAD USER
+    // LOAD USER
     public CustomUserDetails loadUserByEmail(String email) {
         User user = userRepository.findByEmail(email);
 

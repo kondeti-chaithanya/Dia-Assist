@@ -33,7 +33,6 @@ public class PredictionServiceImpl implements PredictionService {
 
         Map<String, Object> response = pythonService.predict(request);
 
-        // ✅ Minimal required validation
         if (response == null ||
                 !response.containsKey("prediction") ||
                 !response.containsKey("diet_plan")) {
@@ -56,7 +55,7 @@ public class PredictionServiceImpl implements PredictionService {
                 : null;
 
 
-        // ✅ Save to DB
+        // Save to DB
         Prediction prediction = new Prediction();
         prediction.setBloodGlucose(request.getBlood_glucose_level());
         prediction.setBmi(request.getBmi());
@@ -68,7 +67,7 @@ public class PredictionServiceImpl implements PredictionService {
         prediction.setCreatedAt(LocalDateTime.now());
         predictionRepository.save(prediction);
 
-        // ✅ Send response to frontend
+        // Send response to frontend
         PredictionResponseDTO dto = new PredictionResponseDTO();
         dto.setPrediction(predictionValue);
         dto.setMessage(message);

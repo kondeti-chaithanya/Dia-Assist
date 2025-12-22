@@ -24,15 +24,10 @@ public class SecurityConfig {
                 .cors(cors -> {})
                 .authorizeHttpRequests(auth -> auth
 
-                        // 🔥 THIS LINE IS MANDATORY
+                        //THIS LINE IS MANDATORY
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-
-                        // 🔥 allow auth APIs
                         .requestMatchers("/auth/**").permitAll()
-
-                        // optional
                         .requestMatchers("/api/chat/**").permitAll()
-
                         .requestMatchers("/api/graph/**").permitAll()
 
                         // protected APIs

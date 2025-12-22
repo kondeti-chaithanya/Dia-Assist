@@ -28,10 +28,7 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 
-    @OneToOne(mappedBy = "user")
-    private DietPlan dietPlans;
-
-    @OneToMany(mappedBy = "user")
-    private List<ChatbotHistory> chatbotHistory;
+//    @OneToOne(mappedBy = "user")
+//    private DietPlan dietPlans;
 
 }
