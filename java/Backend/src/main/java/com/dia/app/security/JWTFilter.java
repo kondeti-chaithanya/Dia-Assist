@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -27,20 +26,17 @@ public class JWTFilter extends OncePerRequestFilter {
 
         String path = request.getServletPath();
 
-        return request.getMethod().equalsIgnoreCase("OPTIONS")  // 🔥 REQUIRED
-                || path.startsWith("/auth/")
-                || path.startsWith("/api/chat");
+        return request.getMethod().equalsIgnoreCase("OPTIONS") || path.startsWith("/auth/") || path.startsWith("/api/chat");
     }
 
-
     @Override
-    protected void doFilterInternal(
-            HttpServletRequest request,
-            HttpServletResponse response,
-            FilterChain filterChain
-    ) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+
+        System.out.println("JWT FILTER HIT : "+request.getRequestURI());
 
         String authHeader = request.getHeader("Authorization");
+
+        System.out.println("AUTH HEADER = "+authHeader);
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String token = authHeader.substring(7);
@@ -48,37 +44,20 @@ public class JWTFilter extends OncePerRequestFilter {
             try {
                 String email = jwtService.extractEmail(token);
 
-                // ✅ LOAD FULL USER
-                CustomUserDetails userDetails =
-                        jwtService.loadUserByEmail(email);
-
-                // 🔍 ADD THESE TWO LINES (DEBUG)
-                System.out.println("JWT AUTH USER: " + userDetails.getUsername());
-                System.out.println("JWT AUTH AUTHORITIES: " + userDetails.getAuthorities());
-
-
+                // LOAD FULL USER
+                CustomUserDetails userDetails = jwtService.loadUserByEmail(email);
 
                 UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(
-                                userDetails,
-                                null,
-                                List.of(new SimpleGrantedAuthority("ROLE_USER"))
-                        );
+                        new UsernamePasswordAuthenticationToken(userDetails, null, List.of(new SimpleGrantedAuthority("ROLE_USER")));
 
-                authentication.setDetails(
-                        new WebAuthenticationDetailsSource().buildDetails(request)
-                );
+                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
-                SecurityContextHolder.getContext()
-                        .setAuthentication(authentication);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
 
             } catch (Exception e) {
-//                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-//                return;
                 SecurityContextHolder.clearContext();
             }
         }
-
         filterChain.doFilter(request, response);
     }
 

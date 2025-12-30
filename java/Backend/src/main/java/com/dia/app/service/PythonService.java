@@ -15,9 +15,11 @@ public class PythonService {
 
     private static final String PREDICT_URL = "http://localhost:8000/predict_and_diet";
 
-    public Map<String, Object> predict(Object request) {
+    public Map<String, Object> predict(Object request, String authHeader) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
+
+        headers.set("Authorization",authHeader);
 
         HttpEntity<Object> entity = new HttpEntity<>(request, headers);
         return restTemplate.postForObject(
@@ -26,17 +28,4 @@ public class PythonService {
                 Map.class
         );
     }
-
-
-//    public Map<String, Object> predict(Object request) {
-//
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_JSON); // Important!
-//        // If Python requires authentication, add it here:
-//        // headers.set("Authorization", "Bearer <token>");
-//
-//        HttpEntity<Object> entity = new HttpEntity<>(request, headers);
-//
-//        return restTemplate.postForObject(PREDICT_URL, entity, Map.class);
-//    }
 }

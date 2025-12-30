@@ -17,12 +17,8 @@ public class GraphController {
     private final GraphService graphService;
 
     @GetMapping("/last-checks")
-    public ResponseEntity<?> getLastChecks(
-            @AuthenticationPrincipal CustomUserDetails userDetails
-    ) {
-        Long userId = userDetails.getId(); // 🔥 FROM JWT
-        return ResponseEntity.ok(
-                graphService.getLastSeenChecks(userId)
-        );
+    public ResponseEntity<?> getLastChecks(@AuthenticationPrincipal CustomUserDetails userDetails) {
+        Long userId = userDetails.getId(); //FROM JWT
+        return ResponseEntity.ok(graphService.getLastSeenChecks(userId));
     }
 }

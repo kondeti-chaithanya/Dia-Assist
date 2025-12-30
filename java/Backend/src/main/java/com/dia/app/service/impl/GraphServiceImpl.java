@@ -17,14 +17,13 @@ public class GraphServiceImpl implements GraphService {
     @Override
     public List<Map<String, Object>> getLastSeenChecks(Long userId) {
 
-        // 1️⃣ Fetch last 7 predictions
-        List<Prediction> predictions =
-                predictionRepository.findTop7ByUser_IdOrderByCreatedAtDesc(userId);
+        // Fetch last 7 predictions
+        List<Prediction> predictions = predictionRepository.findTop7ByUser_IdOrderByCreatedAtDesc(userId);
 
-        // 2️⃣ Reverse so oldest → newest
+        //Reverse so oldest → newest
         Collections.reverse(predictions);
 
-        // 3️⃣ Prepare graph data
+        //Prepare graph data
         List<Map<String, Object>> result = new ArrayList<>();
 
         int count = 1;

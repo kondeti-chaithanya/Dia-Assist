@@ -15,7 +15,7 @@ public class ChatbotServiceImpl implements ChatbotService {
     private final RestTemplate restTemplate;
 
     @Override
-    public ChatResponseDTO askChatbot(String question) {
+    public ChatResponseDTO askChatbot(String question, String authHeader) {
 
         String pythonUrl = "http://localhost:8000/chat";
 
@@ -25,8 +25,9 @@ public class ChatbotServiceImpl implements ChatbotService {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<ChatRequestDTO> entity =
-                new HttpEntity<>(request, headers);
+        headers.set("Authorization", authHeader);
+
+        HttpEntity<ChatRequestDTO> entity = new HttpEntity<>(request, headers);
 
         ResponseEntity<ChatResponseDTO> response =
                 restTemplate.exchange(
@@ -35,8 +36,6 @@ public class ChatbotServiceImpl implements ChatbotService {
                         entity,
                         ChatResponseDTO.class
                 );
-
-        System.out.println("Python raw response: " + response.getBody());
 
         return response.getBody();
     }

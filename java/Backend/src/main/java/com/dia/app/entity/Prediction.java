@@ -14,11 +14,9 @@ public class Prediction {
     private Long id;
 
     private String result; // "1" or "0"
-
     private Double bmi;
     private Double hba1c;
     private Integer bloodGlucose;
-
     private LocalDateTime createdAt;
 
     @ManyToOne

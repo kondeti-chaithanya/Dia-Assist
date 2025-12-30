@@ -19,34 +19,29 @@ public class JWTService {
     @Autowired
     private UserRepository userRepository;
 
-    private static final String SECRET_KEY =
-            "mySuperSecretKeyForJwtWhichIsAtLeast32BytesLong";
+    private static final String SECRET_KEY = "mySuperSecretKeyForJwtWhichIsAtLeast32BytesLong";
 
-    private final SecretKey SECRET =
-            Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
+    private final SecretKey SECRET = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
 
-    private static final long JWT_EXPIRATION =
-            1000L * 60 * 60 * 24; // 24 hours
+    private static final long JWT_EXPIRATION = 1000L * 60 * 60 * 24; // 24 hours
 
-    // GENERATE TOKEN
+    // Generating the token here
     public String generateToken(String email, Long userId) {
 
         Map<String, Object> claims = new HashMap<>();
         claims.put("id", userId);
 
         return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(email)
-                .setIssuedAt(new Date())
-                .setExpiration(
-                        new Date(System.currentTimeMillis() + JWT_EXPIRATION)
-                )
-                .signWith(SECRET)
-                .compact();
+                .setClaims(claims) //adds custom data
+                .setSubject(email) //identify the user
+                .setIssuedAt(new Date()) //token creation time
+                .setExpiration(new Date(System.currentTimeMillis() + JWT_EXPIRATION)) //Token expiry
+                .signWith(SECRET) //signs token eith secret key
+                .compact(); //generates final jwt string
     }
 
 
-    //VALIDATE TOKEN
+    //Validating here and this is used inside the jwt filter
     public String extractEmail(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(SECRET) // SAME KEY
@@ -56,7 +51,7 @@ public class JWTService {
                 .getSubject();
     }
 
-    // LOAD USER
+    //Loading the user
     public CustomUserDetails loadUserByEmail(String email) {
         User user = userRepository.findByEmail(email);
 

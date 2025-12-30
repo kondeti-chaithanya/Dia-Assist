@@ -20,7 +20,6 @@ public class UserController {
         return ResponseEntity.ok(authService.login(user.getEmail(), user.getPassword()));
     }
 
-
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
         System.out.println("REGISTER API HIT");

@@ -11,8 +11,8 @@ import com.dia.app.entity.Prediction;
 import com.dia.app.entity.User;
 import com.dia.app.repository.PredictionRepository;
 import com.dia.app.service.PredictionService;
+import com.dia.app.service.PythonClientService;
 import com.dia.app.service.PythonService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,35 +25,26 @@ public class PredictionServiceImpl implements PredictionService {
     @Autowired
     private PredictionRepository predictionRepository;
 
+    @Autowired
+    private PythonClientService pythonClientService;
+
     @Override
-    public PredictionResponseDTO predictAndGenerateDiet(
-            PredictionRequestDTO request,
-            User user
-    ) {
+    public PredictionResponseDTO predictAndGenerateDiet(PredictionRequestDTO request, User user, String authHeader) {
 
-        Map<String, Object> response = pythonService.predict(request);
+        Map<String, Object> response = pythonService.predict(request, authHeader);
 
-        if (response == null ||
-                !response.containsKey("prediction") ||
-                !response.containsKey("diet_plan")) {
-
+        if (response == null || !response.containsKey("prediction") || !response.containsKey("diet_plan")) {
             throw new RuntimeException("Invalid Python response: " + response);
         }
 
         Integer predictionValue = (Integer) response.get("prediction");
 
         @SuppressWarnings("unchecked")
-        Map<String, Object> dietPlan =
-                (Map<String, Object>) response.get("diet_plan");
+        Map<String, Object> dietPlan = (Map<String, Object>) response.get("diet_plan");
 
-        String message = response.containsKey("message")
-                ? String.valueOf(response.get("message"))
-                : null;
+        String message = response.containsKey("message") ? String.valueOf(response.get("message")) : null;
 
-        String whyThisResult = response.containsKey("why_this_result")
-                ? String.valueOf(response.get("why_this_result"))
-                : null;
-
+        String whyThisResult = response.containsKey("why_this_result") ? String.valueOf(response.get("why_this_result")) : null;
 
         // Save to DB
         Prediction prediction = new Prediction();
@@ -77,8 +68,6 @@ public class PredictionServiceImpl implements PredictionService {
         return dto;
     }
 
-
-
     @Override
     public Prediction getPrediction(Long id) {
         return predictionRepository.findById(id).orElse(null);
@@ -88,4 +77,13 @@ public class PredictionServiceImpl implements PredictionService {
     public List<PredictionHistoryDTO> getPredictionHistory(Long userId) {
         return predictionRepository.findHistoryByUserId(userId);
     }
+
+    @Override
+    public Map<String, Object> callPythonPrediction(
+            Map<String, Object> request,
+            String token
+    ) {
+        return pythonClientService.callPython(request, token);
+    }
+
 }

@@ -23,13 +23,11 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> {})
                 .authorizeHttpRequests(auth -> auth
-
-                        //THIS LINE IS MANDATORY
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers("/api/chat/**").permitAll()
+                        .requestMatchers("/api/chat").permitAll()
+                        .requestMatchers("/prediction").permitAll()
                         .requestMatchers("/api/graph/**").permitAll()
-
                         // protected APIs
                         .anyRequest().authenticated()
                 )

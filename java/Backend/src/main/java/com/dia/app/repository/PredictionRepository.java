@@ -4,14 +4,9 @@ import com.dia.app.dto.PredictionHistoryDTO;
 import com.dia.app.entity.Prediction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
-import java.awt.print.Pageable;
 import java.util.List;
-import java.util.Optional;
 
 public interface PredictionRepository extends JpaRepository<Prediction, Long> {
-
-    List<Prediction> findByUserIdOrderByCreatedAtDesc(Long userId);
 
     List<Prediction> findTop7ByUser_IdOrderByCreatedAtDesc(Long userId);
 
