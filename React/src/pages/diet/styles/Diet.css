@@ -1,0 +1,202 @@
+/* ===============================
+   PAGE BACKGROUND
+================================ */
+
+.diet-page {
+  min-height: 100vh;
+  background: #eefafa;
+  padding-bottom: 60px;
+  padding-top: 80px;
+  overflow-x: hidden; /* prevents horizontal scroll */
+}
+
+/* ===============================
+   HEADINGS
+================================ */
+
+.diet-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1f2933;
+  margin-top: 0px;
+  text-align: center;
+}
+
+.diet-subtitle {
+  max-width: 720px;
+  margin: 10px auto 0;
+  font-size: 1.1rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* ===============================
+   DIET CARDS
+================================ */
+
+.diet-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  padding: 0 15px; /* prevents overflow on small screens */
+}
+
+.diet-card {
+  width: 320px;
+  max-width: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.diet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Card title */
+.diet-card h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+/* Card description */
+.diet-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* List & small text */
+.diet-card span,
+.diet-card li {
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* ===============================
+   TIPS SECTION
+================================ */
+
+.tips-section {
+  background: #eefafa;
+  border-radius: 20px;
+  padding: 40px 30px;
+  margin-top: 60px;
+}
+
+.tips-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2933;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Tip cards */
+.tip-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 24px;
+  height: 100%;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.tip-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tip-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.tip-text {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* ===============================
+   NON-DIABETIC MESSAGE
+================================ */
+.non-diabetic-message {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dbeafe 100%);
+  border: 2px solid #14b8a6;
+  border-radius: 18px;
+  padding: 40px;
+  text-align: center;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 8px 22px rgba(20, 184, 166, 0.15);
+  animation: slideIn 0.5s ease-out;
+}
+
+.non-diabetic-message h2 {
+  font-size: 2rem;
+  color: #14b8a6;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.non-diabetic-message p {
+  font-size: 1.05rem;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.non-diabetic-message strong {
+  color: #14b8a6;
+  font-weight: 700;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   RESPONSIVE FIXES
+================================ */
+
+@media (max-width: 768px) {
+  .diet-title {
+    font-size: 2rem;
+    margin-top: 60px;
+  }
+
+  .diet-card {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .non-diabetic-message {
+    padding: 25px;
+  }
+
+  .non-diabetic-message h2 {
+    font-size: 1.5rem;
+  }
+
+  .non-diabetic-message p {
+    font-size: 0.95rem;
+  }
+}
+

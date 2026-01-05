@@ -1,0 +1,409 @@
+/* ===========================
+   PAGE BACKGROUND
+=========================== */
+.prediction-page {
+  min-height: 100vh;
+  background-color: #eefafa;
+  padding: 100px 15px 80px 15px;
+}
+
+/* ===========================
+   PAGE TITLE
+=========================== */
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 40px;
+}
+
+/* ===========================
+   CARD STYLING
+=========================== */
+.prediction-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 40px;
+  max-width: 540px;
+  margin: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ===========================
+   CARD HEADER
+=========================== */
+.card-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.icon-circle {
+  width: 56px;
+  height: 56px;
+  background-color: #14b8a6;
+  color: white;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+}
+
+.card-header h2 {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card-header p {
+  color: #6c757d;
+  font-size: 14px;
+}
+
+/* ===========================
+   FORM ROW (LABEL + INPUT)
+=========================== */
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.form-label {
+  width: 200px;          /* aligns all labels */
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+ 
+  
+}
+
+/* ===========================
+   INPUTS & SELECT
+=========================== */
+.form-input,
+.form-row input,
+.form-row select {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #dbe5e7;
+  font-size: 14px;
+}
+
+.form-input:focus,
+.form-row input:focus,
+.form-row select:focus {
+  outline: none;
+  border-color: #14b8a6;
+}
+
+/* ===========================
+   SMOKING YES / NO BUTTONS
+=========================== */
+.simple-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.simple-buttons button {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px solid #14b8a6;
+  background: white;
+  color: #14b8a6;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.simple-buttons button:hover {
+  background: #14b8a6;
+  color: white;
+}
+
+.simple-buttons button.active {
+  background: #14b8a6;
+  color: white;
+}
+
+/* ===========================
+   PREDICT BUTTON
+=========================== */
+.predict-btn {
+  width: 100%;
+  margin-top: 30px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #14b8a6;
+  border: none;
+  border-radius: 14px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.predict-btn:hover {
+  background-color: #0ea5a0;
+}
+
+/* ===========================
+   RESPONSIVE (MOBILE)
+=========================== */
+@media (max-width: 768px) {
+  .prediction-page {
+    padding: 60px 12px;
+  }
+
+  .page-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .prediction-card {
+    padding: 24px;
+    max-width: 100%;
+  }
+
+  .card-header {
+    margin-bottom: 24px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8px;
+  }
+
+  .form-input,
+  .form-row input,
+  .form-row select {
+    width: 100%;
+  }
+
+  .simple-buttons {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .simple-buttons button {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .predict-btn {
+    font-size: 14px;
+    padding: 14px;
+    margin-top: 24px;
+    gap: 8px;
+  }
+
+  .prediction-result {
+    margin-top: 24px;
+    padding: 16px;
+  }
+
+  .prediction-result h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .prediction-result p {
+    font-size: 14px;
+    margin: 6px 0;
+  }
+
+  .prediction-result p b {
+    font-size: 16px;
+  }
+
+  .why-this-result {
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+
+  .why-this-result strong {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .why-this-result p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .prediction-page {
+    padding: 50px 10px;
+  }
+
+  .page-title {
+    font-size: 20px;
+  }
+
+  .prediction-card {
+    padding: 20px;
+  }
+
+  .card-header h2 {
+    font-size: 18px;
+  }
+
+  .card-header p {
+    font-size: 12px;
+  }
+
+  .form-row {
+    margin-bottom: 14px;
+  }
+
+  .predict-btn {
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .error-text {
+    font-size: 11px;
+  }
+}
+.error-text {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ===========================
+   PREDICTION RESULT
+=========================== */
+.prediction-result {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f0fdf4;
+  border: 2px solid #14b8a6;
+  border-radius: 12px;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+}
+
+.prediction-result h3 {
+  color: #14b8a6;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.prediction-result p {
+  font-size: 15px;
+  margin: 8px 0;
+  color: #1f2937;
+}
+
+.prediction-result p b {
+  font-size: 18px;
+  color: #14b8a6;
+  font-weight: 700;
+}
+
+/* ===========================
+   PREDICTION ERROR
+=========================== */
+.prediction-error {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fef2f2;
+  border: 2px solid #dc2626;
+  border-radius: 12px;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+}
+
+.prediction-error p {
+  color: #dc2626;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Why This Result Section */
+.why-this-result {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #86efac;
+  text-align: left;
+}
+
+.why-this-result strong {
+  display: block;
+  color: #14b8a6;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.why-this-result p {
+  font-size: 14px;
+  color: #1f2937;
+  line-height: 1.5;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.view-diet-btn {
+  background: #0bb8b0;
+  border: none;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.view-diet-btn:hover {
+  background: #0a9b8f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11, 184, 176, 0.3);
+}
+
+.view-diet-btn:active {
+  transform: translateY(0);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
