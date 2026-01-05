@@ -1,4 +1,4 @@
-import pytest
+import pytest 
 from app.models.schemas import PatientInput
 
 def test_patient_input_valid():
@@ -15,7 +15,7 @@ def test_patient_input_valid():
     }
 
     patient = PatientInput(**data)
-    assert patient.age == 40
+    assert patient.age == 40 
 
 
 def test_patient_input_invalid_age():
