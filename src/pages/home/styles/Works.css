@@ -1,0 +1,83 @@
+
+
+
+
+/* Section */
+.how-section {
+  padding: 100px 20px;
+  background: #ffffff;
+  text-align: center;
+}
+
+/* Title */
+.how-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+/* Subtitle */
+.how-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  max-width: 650px;
+  margin: 0 auto 70px;
+}
+
+/* Grid */
+.how-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Card */
+.how-card {
+  width: 240px;
+  text-align: center;
+  position: relative;
+}
+
+/* Step number */
+.how-step {
+  font-size: 64px;
+  font-weight: 700;
+  color: #e0f2f1;
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Icon */
+.how-icon {
+  width: 56px;
+  height: 56px;
+  background: #e6faf7;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #14b8a6;
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card title */
+.how-card-title {
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+/* Description */
+.how-card-desc {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+}
