@@ -1,26 +1,72 @@
-# Virtual environments
+# # Virtual environments
+# venv/
+# .venv/
+
+# # Python cache
+# __pycache__/
+# *.pyc
+# *.pyo
+
+# # Environment variables
+
+# # Vector DB (FAISS + Pickle files)
+# vector_index/
+# *.pkl
+# *.index
+
+# # PDFs (optional—keep if needed)
+
+
+# # OS files
+# .DS_Store
+# Thumbs.db
+
+# # Editor files
+# .vscode/
+
+# =========================================
+# Python virtual environments
+# =========================================
 venv/
 .venv/
 
+# =========================================
 # Python cache
+# =========================================
 __pycache__/
 *.pyc
 *.pyo
 
-# Environment variables
+# =========================================
+# Environment variables (CRITICAL)
+# =========================================
 .env
+.env.*
 
-# Vector DB (FAISS + Pickle files)
+# =========================================
+# Vector DB (FAISS / embeddings)
+# =========================================
 vector_index/
-*.pkl
 *.index
 
-# PDFs (optional—keep if needed)
-data/*.pdf
+# Ignore pickle files EXCEPT trained ML model
+*.pkl
+!xgboost_diabetes.pkl
 
+# =========================================
+# Logs
+# =========================================
+logs/
+*.log
+
+# =========================================
 # OS files
+# =========================================
 .DS_Store
 Thumbs.db
 
-# Editor files
+# =========================================
+# Editor / IDE files
+# =========================================
 .vscode/
+.idea/

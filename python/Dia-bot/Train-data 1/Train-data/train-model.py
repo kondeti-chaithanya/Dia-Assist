@@ -7,7 +7,7 @@ import joblib
 from sklearn.metrics import confusion_matrix, classification_report, roc_auc_score, roc_curve
 
 # Load dataset
-data = pd.read_csv(r"D:\Train-data\diabetes_prediction_dataset.csv")
+data = pd.read_csv("diabetes_prediction_dataset.csv")
 
 # Convert categorical columns
 categorical_cols = ['gender', 'smoking_history']
