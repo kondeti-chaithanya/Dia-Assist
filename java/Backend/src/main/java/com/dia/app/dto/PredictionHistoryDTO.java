@@ -1,11 +1,17 @@
 package com.dia.app.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
-public record PredictionHistoryDTO(
-        LocalDateTime date,
-        String result,
-        Integer bloodGlucose,
-        Double bmi,
-        Double hba1c
-) {}
+@Data
+@AllArgsConstructor
+public class PredictionHistoryDTO {
+
+    private LocalDateTime date;
+    private String result;
+    private Integer bloodGlucose;
+    private Double bmi;
+    private Double hba1c;
+}

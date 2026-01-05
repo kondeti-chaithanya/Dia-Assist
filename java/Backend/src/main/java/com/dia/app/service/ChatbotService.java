@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface ChatbotService {
-    public ChatResponseDTO askChatbot(String question, String authHeader);
+    public ChatResponseDTO askChatbot(String question, String userId);
 }

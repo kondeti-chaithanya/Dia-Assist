@@ -24,7 +24,7 @@ public class Prediction {
     private User user;
 
     @Column(columnDefinition = "TEXT")
-    private String why_this_result;
+    private String whyThisResult;
 
     @Column(columnDefinition = "TEXT")
     private String dietPlan;

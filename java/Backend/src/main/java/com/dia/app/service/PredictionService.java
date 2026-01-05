@@ -7,19 +7,15 @@ import com.dia.app.entity.Prediction;
 import com.dia.app.entity.User;
 
 import java.util.List;
-import java.util.Map;
 
 public interface PredictionService {
 
-    PredictionResponseDTO predictAndGenerateDiet(PredictionRequestDTO request, User user,String authHeader);
+    PredictionResponseDTO predictAndGenerateDiet(
+            PredictionRequestDTO request,
+            User user
+    );
 
     Prediction getPrediction(Long id);
 
     List<PredictionHistoryDTO> getPredictionHistory(Long userId);
-
-    Map<String, Object> callPythonPrediction(
-            Map<String, Object> request,
-            String token
-    );
-
 }

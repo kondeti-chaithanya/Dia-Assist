@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/graph")
 @RequiredArgsConstructor
@@ -17,8 +20,8 @@ public class GraphController {
     private final GraphService graphService;
 
     @GetMapping("/last-checks")
-    public ResponseEntity<?> getLastChecks(@AuthenticationPrincipal CustomUserDetails userDetails) {
-        Long userId = userDetails.getId(); //FROM JWT
+    public ResponseEntity<List<Map<String, Object>>> getLastChecks(@AuthenticationPrincipal CustomUserDetails userDetails) {
+        Long userId = userDetails.getId(); //from jwt
         return ResponseEntity.ok(graphService.getLastSeenChecks(userId));
     }
 }

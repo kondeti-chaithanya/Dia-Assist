@@ -2,9 +2,10 @@ package com.dia.app.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,30 +17,28 @@ import java.io.IOException;
 import java.util.List;
 
 @Component
+@AllArgsConstructor
 public class JWTFilter extends OncePerRequestFilter {
 
-    @Autowired
-    private JWTService jwtService;
+    private final JWTService jwtService;
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
 
         String path = request.getServletPath();
 
-        return request.getMethod().equalsIgnoreCase("OPTIONS") || path.startsWith("/auth/") || path.startsWith("/api/chat");
+        return request.getMethod().equalsIgnoreCase("OPTIONS")
+                || path.equals("/auth/login")
+                || path.equals("/auth/register");
     }
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-        System.out.println("JWT FILTER HIT : "+request.getRequestURI());
+        String token = getTokenFromCookie(request);
 
-        String authHeader = request.getHeader("Authorization");
-
-        System.out.println("AUTH HEADER = "+authHeader);
-
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            String token = authHeader.substring(7);
+        if (token != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
             try {
                 String email = jwtService.extractEmail(token);
@@ -47,8 +46,10 @@ public class JWTFilter extends OncePerRequestFilter {
                 // LOAD FULL USER
                 CustomUserDetails userDetails = jwtService.loadUserByEmail(email);
 
-                UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(userDetails, null, List.of(new SimpleGrantedAuthority("ROLE_USER")));
+                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                                userDetails,
+                                null,
+                                List.of(new SimpleGrantedAuthority("ROLE_USER")));
 
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
@@ -61,5 +62,16 @@ public class JWTFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-}
+    //Getting token from cookie
+    private String getTokenFromCookie(HttpServletRequest request) {
 
+        if (request.getCookies() == null) return null;
+
+        for (Cookie cookie : request.getCookies()) {
+            if ("token".equals(cookie.getName())) {
+                return cookie.getValue();
+            }
+        }
+        return null;
+    }
+}
