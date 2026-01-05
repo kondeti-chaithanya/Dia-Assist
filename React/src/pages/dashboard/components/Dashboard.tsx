@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Dashboard.css";
+import "../styles/Dashboard.css";
 import StatsCard from "./StatsCard";
 import { useNavigate } from "react-router-dom";
 import WeeklyChart from "./WeeklyChart";
@@ -60,9 +60,18 @@ const Dashboard: React.FC = () => {
     <div className="dashboard-container">
       <h1 className="dash-title">Dashboard</h1>
       <h4 className="dash-subtitle">
-        Track your health metrics and diabetes risk over time
+        Track your health metrics and diabetes risk over time 
       </h4>
- 
+
+      <section className="last-checkups-section">
+  <div className="last-checkups-header">
+    <div className="last-icon">📈</div>
+
+    <div className="last-checkups-text">
+      <h2><b>Last Checkup </b></h2>
+      <p> <b>Overview of your recent health metrics</b></p>
+    </div>
+  </div>
       {/* ===== STATS CARDS ===== */}
       <div className="cards-row">
         <StatsCard
@@ -108,6 +117,7 @@ const Dashboard: React.FC = () => {
           icon="📈"
         />
       </div>
+        </section>
  
       {/* ===== MIDDLE ROW ===== */}
       <div className="middle-row">
@@ -121,15 +131,15 @@ const Dashboard: React.FC = () => {
           <h2>Quick Actions</h2>
  
           <button onClick={() => navigate("/predict")} className="action-btn">
-            New Prediction →
+           <b> New Prediction → </b>
           </button>
  
           <button onClick={() => navigate("/diet")} className="action-btn">
-            View Diet Plans →
+           <b> View Diet Plans →</b>
           </button>
  
           <button onClick={() => navigate("/history")} className="action-btn">
-            View History →
+           <b> View History →</b>
           </button>
         </div>
       </div>

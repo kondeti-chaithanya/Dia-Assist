@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import React, { useContext, useState, useEffect } from "react";
 import { Activity, Shield, TrendingUp } from "lucide-react";
-import "./HeroSection.css";
+import "../styles/HeroSection.css";
 import Works from "./Works"
-import Modal from "@/global/components/Modal";
-import Login from "@/pages/auth/Login";
-import Register from "@/pages/auth/Register";
+import Modal from "@/global/components/modal/components/Modal";
+import Login from "@/pages/auth/components/Login";
+import Register from "@/pages/auth/components/Register";
 import { AuthContext } from "@/auth/AuthContext";
  
 const HeroSection: React.FC = () => {

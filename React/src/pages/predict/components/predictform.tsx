@@ -1,11 +1,12 @@
-
-
 import React, { useState } from "react";
 import { Activity } from "lucide-react";
-import "./predictform.css";
+import { useNavigate } from "react-router-dom";
+import "../styles/predictform.css";
 import api from "@/api/axiosConfig";
 
 const Predict: React.FC = () => {
+  const navigate = useNavigate();
+
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
   const [HbA1c_level, setHbA1cLevel] = useState("");
@@ -21,22 +22,6 @@ const Predict: React.FC = () => {
 
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
-  // Load prediction data from localStorage on mount
-  React.useEffect(() => {
-    const savedData = localStorage.getItem("predictionData");
-    if (savedData) {
-      try {
-        const data = JSON.parse(savedData);
-        setPredictionResult(data.message || null);
-        setPredictionValue(Number(data.prediction) || null);
-        setWhyThisResult(data.why_this_result || null);
-        console.log("📊 Loaded prediction data from localStorage:", data);
-      } catch (e) {
-        console.error("Error parsing saved prediction data:", e);
-      }
-    }
-  }, []);
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -59,53 +44,31 @@ const Predict: React.FC = () => {
 
     setLoading(true);
     setPredictionResult(null);
-    setPredictionValue(null); //  REQUIRED
+    setPredictionValue(null);
 
-
-    //  PAYLOAD MATCHING BACKEND DTO
     const payload = {
       age: Number(age),
-      gender: gender.toLowerCase(), // "male" | "female"
+      gender: gender.toLowerCase(),
       smoking_history: smoking_history === "yes" ? "current" : "never",
       bmi: Number(bmi),
       HbA1c_level: Number(HbA1c_level),
       blood_glucose_level: Number(blood_glucose_level),
       hypertension: hypertension === "yes" ? 1 : 0,
       heart_disease: heart_disease === "yes" ? 1 : 0,
-      other_diseases: []
+      other_diseases: [],
     };
 
     try {
-      //  TOKEN IS AUTO-ATTACHED BY axiosConfig
       const response = await api.post("/prediction", payload);
 
-      console.log(" API Response:", response.data);
-      console.log(" Prediction Value:", response.data.prediction);
-      console.log(" Prediction Type:", typeof response.data.prediction);
-      console.log(" Message:", response.data.message);
-
-      //  BACKEND RETURNS message & prediction
       const predValue = Number(response.data.prediction);
-      console.log(" Converted Prediction Value:", predValue);
 
       setPredictionResult(response.data.message);
       setPredictionValue(predValue);
       setWhyThisResult(response.data.why_this_result || null);
 
-      console.log(" State should update with - predictionResult:", response.data.message);
-      console.log(" State should update with - predictionValue:", predValue);
-      console.log(" State should update with - whyThisResult:", response.data.why_this_result);
-      console.log(" Condition check: predictionResult is truthy?", !!response.data.message);
-      console.log(" Condition check: predictionValue !== null?", predValue !== null);
-
-      localStorage.setItem(
-        "predictionData", JSON.stringify(response.data)
-      );
-
+      localStorage.setItem("predictionData", JSON.stringify(response.data));
     } catch (error: any) {
-      console.error(" Prediction Error:", error);
-      console.error(" Error Response:", error.response?.data);
-      console.error(" Error Message:", error.message);
       setPredictionResult("Prediction failed: " + error.message);
     } finally {
       setLoading(false);
@@ -128,11 +91,14 @@ const Predict: React.FC = () => {
           <p>Enter your health parameters for diabetes risk prediction</p>
         </div>
 
-        <form onSubmit={handleSubmit}>
+       <form onSubmit={handleSubmit} noValidate aria-label="prediction-form">
           {/* Gender */}
           <div className="form-row">
-            <label className="form-label">Gender :</label>
+            <label htmlFor="gender" className="form-label">
+              Gender :
+            </label>
             <select
+              id="gender"
               className="form-input"
               value={gender}
               onChange={(e) => setGender(e.target.value)}
@@ -146,8 +112,11 @@ const Predict: React.FC = () => {
 
           {/* Age */}
           <div className="form-row">
-            <label className="form-label">Age :</label>
+            <label htmlFor="age" className="form-label">
+              Age :
+            </label>
             <input
+              id="age"
               type="number"
               className="form-input"
               value={age}
@@ -159,8 +128,11 @@ const Predict: React.FC = () => {
 
           {/* HbA1c */}
           <div className="form-row">
-            <label className="form-label">HBA1C (%) :</label>
+            <label htmlFor="hba1c" className="form-label">
+              HBA1C (%) :
+            </label>
             <input
+              id="hba1c"
               type="number"
               className="form-input"
               value={HbA1c_level}
@@ -169,10 +141,13 @@ const Predict: React.FC = () => {
             />
           </div>
 
-          {/* Blood Glucose */}
+          {/* Glucose */}
           <div className="form-row">
-            <label className="form-label">Glucose Level (mg/dL) :</label>
+            <label htmlFor="glucose" className="form-label">
+              Glucose Level (mg/dL) :
+            </label>
             <input
+              id="glucose"
               type="number"
               className="form-input"
               value={blood_glucose_level}
@@ -255,8 +230,11 @@ const Predict: React.FC = () => {
 
           {/* BMI */}
           <div className="form-row">
-            <label className="form-label">BMI :</label>
+            <label htmlFor="bmi" className="form-label">
+              BMI :
+            </label>
             <input
+              id="bmi"
               type="number"
               className="form-input"
               value={bmi}
@@ -266,36 +244,49 @@ const Predict: React.FC = () => {
           </div>
 
           <button className="predict-btn" type="submit" disabled={loading}>
-            <Activity size={18} />
-            {loading ? " Predicting..." : " Get Prediction"}
-          </button>
+  <Activity size={18} />
+  {loading ? " Predicting..." : " Get Prediction"}
+</button>
 
-          {predictionValue !== null && (
-            <div className="prediction-result">
-              <h3>Prediction Result</h3>
+{/* 🔴 API error message (shown when prediction fails) */}
+{predictionResult && predictionValue === null && (
+  <p className="error-text">{predictionResult}</p>
+)}
 
-              <p>
-                <b>
-                  {predictionValue === 1
-                    ? "🔴 Diabetic"
-                    : "🟢 Non-Diabetic"}
-                </b>
-              </p>
+{/* ✅ Success result */}
+{predictionValue !== null && (
+  <div className="prediction-result">
+    <h3>Prediction Result</h3>
 
-              {predictionResult && (
-                <p>
-                  <strong>Message:</strong> {predictionResult}
-                </p>
-              )}
+    <p>
+      <b>
+        {predictionValue === 1 ? "🔴 Diabetic" : "🟢 Non-Diabetic"}
+      </b>
+    </p>
 
-              {whyThisResult && (
-                <div className="why-this-result">
-                  <strong>Why this result?</strong>
-                  <p>{whyThisResult}</p>
-                </div>
-              )}
-            </div>
-          )}
+    {predictionResult && (
+      <p>
+        <strong>Message:</strong> {predictionResult}
+      </p>
+    )}
+
+    <button
+      type="button"
+      className="view-diet-btn"
+      onClick={() => navigate("/diet")}
+    >
+      View Diet Plans
+    </button>
+
+    {whyThisResult && (
+      <div className="why-this-result">
+        <strong>Why this result?</strong>
+        <p>{whyThisResult}</p>
+      </div>
+    )}
+  </div>
+)}
+
         </form>
       </div>
     </div>

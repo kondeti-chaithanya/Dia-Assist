@@ -33,13 +33,13 @@ const WeeklyChart = () => {
 
   useEffect(() => {
     api
-      .get("api/graph/last-checks") // 🔥 JWT-based, no userId
+      .get("api/graph/last-checks")
       .then((res) => {
-        console.log("📊 Graph response:", res.data);
+        console.log("Graph response:", res.data);
 
         if (!Array.isArray(res.data) || res.data.length === 0) {
-          setError("No checkup data available");
           setData([]);
+          setError(null); // not an error
           return;
         }
 
@@ -47,7 +47,6 @@ const WeeklyChart = () => {
 
         const firstRow = res.data[0];
 
-        // detect numeric columns dynamically
         const numKeys = Object.keys(firstRow).filter((key) => {
           const value = firstRow[key];
           return (
@@ -57,10 +56,7 @@ const WeeklyChart = () => {
         });
 
         setNumericKeys(numKeys);
-
-        // prefer "check" on X-axis
         setXAxisKey(firstRow["check"] ? "check" : Object.keys(firstRow)[0]);
-
         setError(null);
       })
       .catch((err) => {
@@ -78,8 +74,12 @@ const WeeklyChart = () => {
   }, []);
 
   if (loading) return <p>Loading chart...</p>;
-  if (error) return <p className="error-message">⚠️ {error}</p>;
-  if (!data.length) return <p>No checkup data available</p>;
+
+  if (error)
+    return <p className="error-message">⚠️ {error}</p>;
+
+  if (!data.length)
+    return <p>No checkup data available</p>;
 
   return (
     <div style={{ width: "100%", height: 320 }}>

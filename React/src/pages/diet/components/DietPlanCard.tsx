@@ -1,12 +1,6 @@
 import React from "react";
-import "./DietPlanCard.css"
-import {
-  CheckCircle2,
-  Flame,
-  Leaf,
-  Apple,
-} from "lucide-react";
-import "./DietPlanCard.css";
+import "../styles/DietPlanCard.css";
+import { CheckCircle2, Flame } from "lucide-react";
 
 export interface Meal {
   name: string;
@@ -15,7 +9,7 @@ export interface Meal {
   time: string;
 }
 
-export  interface DietPlan {
+export interface DietPlan {
   id: string;
   name: string;
   description: string;
@@ -27,7 +21,7 @@ export  interface DietPlan {
 
 interface DietPlanCardProps {
   plan: DietPlan;
-  isRecommended?: boolean;
+  isRecommended?: boolean; 
 }
 
 const categoryConfig = {
@@ -37,38 +31,24 @@ const categoryConfig = {
     badgeClass: "badge-low-carb",
   },
   balanced: {
-    icon: Apple,
     label: "Balanced",
     badgeClass: "badge-balanced",
   },
   vegetarian: {
-    icon: Leaf,
-    label: "Vegetarian",
+    label: "Balanced",
     badgeClass: "badge-vegetarian",
   },
 };
 
-const DietPlanCard: React.FC<DietPlanCardProps> = ({
-  plan,
-  isRecommended,
-}) => {
+const DietPlanCard: React.FC<DietPlanCardProps> = ({ plan }) => {
   const config = categoryConfig[plan.category];
-  const Icon = config.icon;
 
   return (
-    <div className={`diet-card ${isRecommended ? "recommended" : ""}`}>
-      {/* Recommended Banner */}
-      {isRecommended && (
-        <div className="recommended-banner">
-          Recommended for You
-        </div>
-      )}
-
+    <div className="diet-card">
       {/* Header */}
       <div className="diet-card-header">
         <div className="d-flex justify-content-between align-items-center mb-2">
           <span className={`diet-badge ${config.badgeClass}`}>
-            <Icon size={14} className="me-1" />
             {config.label}
           </span>
 
@@ -87,8 +67,11 @@ const DietPlanCard: React.FC<DietPlanCardProps> = ({
         <div className="mb-4">
           <h6 className="section-title">Daily Meals</h6>
 
-          {plan.meals.map((meal, index) => (
-            <div key={index} className="meal-box">
+          {plan.meals.map((meal) => (
+            <div
+              key={`${meal.name}-${meal.time}`}
+              className="meal-box"
+            >
               <div className="d-flex justify-content-between mb-1">
                 <div>
                   <strong>{meal.name}</strong>
@@ -100,8 +83,11 @@ const DietPlanCard: React.FC<DietPlanCardProps> = ({
               </div>
 
               <div className="meal-foods">
-                {meal.foods.map((food, i) => (
-                  <span key={i} className="food-badge">
+                {meal.foods.map((food) => (
+                  <span
+                    key={food}
+                    className="food-badge"
+                  >
                     {food}
                   </span>
                 ))}
@@ -114,8 +100,8 @@ const DietPlanCard: React.FC<DietPlanCardProps> = ({
         <div>
           <h6 className="section-title">Benefits</h6>
           <ul className="benefits-list">
-            {plan.benefits.map((benefit, index) => (
-              <li key={index}>
+            {plan.benefits.map((benefit) => (
+              <li key={benefit}>
                 <CheckCircle2 size={16} />
                 <span>{benefit}</span>
               </li>

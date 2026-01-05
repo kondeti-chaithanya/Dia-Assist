@@ -9,9 +9,6 @@ interface ProtectedRouteProps {
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const { isAuthenticated, loading, error } = useContext(AuthContext);
 
-  console.log(" ProtectedRoute - isAuthenticated:", isAuthenticated, "loading:", loading, "error:", error);
-
-  // Show loading state while checking authentication
   if (loading) {
     return (
       <div
@@ -46,17 +43,10 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
     );
   }
 
-  // If authentication error exists, show warning but still redirect
-  if (error && !isAuthenticated) {
-    console.warn("Auth error:", error);
-  }
-
-  // Redirect to home if not authenticated
   if (!isAuthenticated) {
     return <Navigate to="/" replace />;
   }
 
-  // Render children if authenticated
   return <>{children}</>;
 };
 

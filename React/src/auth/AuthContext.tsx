@@ -1,5 +1,16 @@
-import { createContext, useState, useEffect, useCallback } from "react";
+import {
+  createContext,
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+} from "react";
 import type { ReactNode } from "react";
+import api from "@/api/axiosConfig";
+
+/* ======================
+   TYPES
+====================== */
 
 interface User {
   name: string;
@@ -15,9 +26,13 @@ interface AuthContextType {
   setIsAuthenticated: (value: boolean) => void;
   setUser: (user: User | null) => void;
   setError: (error: string | null) => void;
-  logout: () => void;
+  logout: () => Promise<void>;
   clearError: () => void;
 }
+
+/* ======================
+   CONTEXT
+====================== */
 
 export const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
@@ -27,17 +42,17 @@ export const AuthContext = createContext<AuthContextType>({
   setIsAuthenticated: () => {},
   setUser: () => {},
   setError: () => {},
-  logout: () => {},
+  logout: async () => {},
   clearError: () => {},
 });
+
+/* ======================
+   PROVIDER
+====================== */
 
 interface Props {
   children: ReactNode;
 }
-
-const TOKEN_KEY = "token";
-const USER_KEY = "user";
-const TOKEN_EXPIRY_KEY = "tokenExpiry";
 
 export const AuthProvider = ({ children }: Props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -45,91 +60,96 @@ export const AuthProvider = ({ children }: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  /* ======================
+     CLEAR ERROR
+  ====================== */
   const clearError = useCallback(() => {
     setError(null);
   }, []);
 
-  // Check if token is expired
-  const isTokenExpired = useCallback(() => {
-    const expiry = localStorage.getItem(TOKEN_EXPIRY_KEY);
-    if (!expiry) return true;
-    return Date.now() > parseInt(expiry, 10);
-  }, []);
-
-  // Initialize authentication from localStorage
-  useEffect(() => {
+  /* ======================
+     CHECK AUTH (COOKIE)
+     Runs on app load / refresh
+  ====================== */
+useEffect(() => {
+  const checkAuth = async () => {
     try {
-      const token = localStorage.getItem(TOKEN_KEY);
-      const userData = localStorage.getItem(USER_KEY);
+      const response = await api.get("/auth/me");
 
-      if (token && !isTokenExpired()) {
+      if (response.data?.email) {
+        console.log(
+          "Auth check successful:",
+          response.data.email
+        );
+        setUser(response.data);
         setIsAuthenticated(true);
-        if (userData) {
-          try {
-            const parsedUser = JSON.parse(userData);
-            // Validate user object structure
-            if (parsedUser && parsedUser.email && typeof parsedUser.email === "string") {
-              setUser(parsedUser);
-              console.log(" User loaded from localStorage:", parsedUser.email);
-            } else {
-              throw new Error("Invalid user data structure");
-            }
-          } catch (e) {
-            console.error(" Failed to parse user data:", e);
-            // Clear invalid data
-            localStorage.removeItem(USER_KEY);
-            localStorage.removeItem(TOKEN_KEY);
-            localStorage.removeItem(TOKEN_EXPIRY_KEY);
-            setIsAuthenticated(false);
-            setError("Session invalid. Please login again.");
-          }
-        }
-      } else if (token && isTokenExpired()) {
-        console.warn("⚠️ Token expired");
-        localStorage.removeItem(TOKEN_KEY);
-        localStorage.removeItem(USER_KEY);
-        localStorage.removeItem(TOKEN_EXPIRY_KEY);
-        setIsAuthenticated(false);
-        setError("Your session has expired. Please login again.");
+      } else {
+        throw new Error("Invalid user response");
       }
-    } catch (err) {
-      console.error(" Auth initialization error:", err);
-      setError("Failed to initialize authentication.");
+    } catch (err: any) {
+      if (err.response?.status === 401) {
+        console.log("ℹUser not authenticated");
+      } else {
+        console.error("Auth check failed:", err.message);
+      }
+
+      setIsAuthenticated(false);
+      setUser(null);
     } finally {
       setLoading(false);
     }
-  }, [isTokenExpired]);
+  };
 
-  const logout = useCallback(() => {
+  checkAuth();
+}, []);
+
+
+  /* ======================
+     LOGOUT
+  ====================== */
+  const logout = useCallback(async () => {
     try {
-      localStorage.removeItem(TOKEN_KEY);
-      localStorage.removeItem(USER_KEY);
-      localStorage.removeItem(TOKEN_EXPIRY_KEY);
+      await api.post("/auth/logout");
+      console.log("✅ Logout successful");
+    } catch (err) {
+      console.error("❌ Logout failed:", err);
+    } finally {
       setIsAuthenticated(false);
       setUser(null);
       setError(null);
-      console.log(" User logged out successfully");
-    } catch (err) {
-      console.error(" Logout error:", err);
-      setError("Failed to logout properly.");
     }
   }, []);
 
+  /* ======================
+     MEMOIZED CONTEXT VALUE
+  ====================== */
+  const contextValue = useMemo(
+    () => ({
+      isAuthenticated,
+      user,
+      loading,
+      error,
+      setIsAuthenticated,
+      setUser,
+      setError,
+      logout,
+      clearError,
+    }),
+    [
+      isAuthenticated,
+      user,
+      loading,
+      error,
+      logout,
+      clearError,
+    ]
+  );
+
   return (
-    <AuthContext.Provider
-      value={{
-        isAuthenticated,
-        user,
-        loading,
-        error,
-        setIsAuthenticated,
-        setUser,
-        setError,
-        logout,
-        clearError,
-      }}
-    >
+    <AuthContext.Provider value={contextValue}>
       {children}
     </AuthContext.Provider>
   );
 };
+
+export default AuthContext;

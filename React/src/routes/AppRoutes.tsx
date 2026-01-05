@@ -4,10 +4,9 @@ import Dashboard from "@/pages/dashboard/components/Dashboard";
 import Predict from "@/pages/predict/components/predictform";
 import Diet from "@/pages/diet/components/Diet";
 import History from "@/pages/history/components/History";
-import Chatbot from "@/global/components/Chat bot/Chatbot";
+import Chatbot from "@/global/components/Chat bot/components/Chatbot";
 import ProtectedRoute from "@/auth/ProtectedRoute";
 
-// Layout component that includes chatbot for protected pages ONLY
 const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
@@ -20,13 +19,11 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      {/* Public Routes - Home Page (With Chatbot - redirects to login on message) */}
       <Route
         path="/"
         element={<Home />}
       />
 
-      {/* Protected Routes - All other pages with Chatbot */}
       <Route
         path="/dashboard"
         element={

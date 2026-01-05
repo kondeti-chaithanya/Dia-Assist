@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Activity, TrendingUp, Heart, MessageSquare } from "lucide-react";
-import "./Works.css";
+import "../styles/Works.css";
 
 const Works: React.FC = () => {
   const steps = [

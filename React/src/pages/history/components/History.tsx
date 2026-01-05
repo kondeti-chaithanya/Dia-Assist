@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import api from "@/api/axiosConfig";
-import "./History.css";
+import "../styles/History.css";
 
 interface HistoryItem {
   date: string;
