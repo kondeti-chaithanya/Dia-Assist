@@ -145,3 +145,28 @@ def get_diet_plan(user: dict):
         "notes": notes,
         "source": "ICMR & NIN Dietary Guidelines (India)"
     }
+
+def explain_prediction_simple(user_data: dict) -> str:
+    """
+    Simple, safe explanation for why diabetes risk was detected.
+    Used ONLY when prediction == 1
+    """
+
+    reasons = []
+
+    if user_data.get("HbA1c_level", 0) >= 6.5:
+        reasons.append("your HbA1c level is above the normal range")
+
+    if user_data.get("blood_glucose_level", 0) >= 126:
+        reasons.append("your blood glucose level is high")
+
+    if user_data.get("bmi", 0) >= 25:
+        reasons.append("your BMI indicates overweight")
+
+    if user_data.get("hypertension") == 1:
+        reasons.append("you have high blood pressure")
+
+    if not reasons:
+        return "Your health values indicate a higher diabetes risk."
+
+    return "Diabetes risk was detected because " + ", ".join(reasons) + "."

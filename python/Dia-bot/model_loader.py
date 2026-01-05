@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from typing import List, Optional
 
-MODEL_PATH = "xgboost_diabetes.pkl"
+MODEL_PATH = "models/xgboost_diabetes.pkl"
 
 def load_model():
     model = joblib.load(MODEL_PATH)

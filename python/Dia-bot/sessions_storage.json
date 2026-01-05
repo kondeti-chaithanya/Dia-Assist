@@ -1,0 +1,404 @@
+{
+  "4": {
+    "user_id": "4",
+    "created_at": "2025-12-31T17:26:15.190852",
+    "updated_at": "2025-12-31T18:00:06.867213",
+    "ml_result": {
+      "user_id": "4",
+      "prediction": 1,
+      "message": "Diabetes Risk Detected",
+      "diet_plan": {
+        "age_group": "adolescent",
+        "daily_calories": 2190,
+        "macros": {
+          "carbs_g": 301,
+          "protein_g": 109,
+          "fat_g": 60
+        },
+        "meal_plan": {
+          "breakfast": {
+            "veg": [
+              {
+                "food": "Ragi / oats porridge",
+                "quantity_g": 100
+              },
+              {
+                "food": "Milk / paneer",
+                "quantity_g": 36
+              }
+            ],
+            "non_veg": [
+              {
+                "food": "Boiled egg",
+                "quantity_g": 36
+              }
+            ]
+          },
+          "lunch": {
+            "veg": [
+              {
+                "food": "Rice / millet",
+                "quantity_g": 100
+              },
+              {
+                "food": "Dal / rajma",
+                "quantity_g": 36
+              },
+              {
+                "food": "Vegetables",
+                "quantity_g": 150
+              }
+            ],
+            "non_veg": [
+              {
+                "food": "Rice / millet",
+                "quantity_g": 100
+              },
+              {
+                "food": "Fish / chicken",
+                "quantity_g": 36
+              },
+              {
+                "food": "Vegetables",
+                "quantity_g": 150
+              }
+            ]
+          },
+          "dinner": {
+            "veg": [
+              {
+                "food": "Roti",
+                "quantity_g": 100
+              },
+              {
+                "food": "Paneer / tofu",
+                "quantity_g": 36
+              },
+              {
+                "food": "Vegetables",
+                "quantity_g": 150
+              }
+            ],
+            "non_veg": [
+              {
+                "food": "Roti",
+                "quantity_g": 100
+              },
+              {
+                "food": "Fish / chicken",
+                "quantity_g": 36
+              },
+              {
+                "food": "Vegetables",
+                "quantity_g": 150
+              }
+            ]
+          }
+        },
+        "notes": {
+          "diabetes": "Low GI foods. Avoid sugar & refined carbs.",
+          "hypertension": "Salt intake should be less than 3g/day."
+        },
+        "source": "ICMR & NIN Dietary Guidelines (India)"
+      },
+      "user_data": {
+        "age": 12,
+        "gender": "male",
+        "bmi": 21.0,
+        "HbA1c_level": 9.0,
+        "blood_glucose_level": 99.0,
+        "hypertension": 1,
+        "heart_disease": 0,
+        "smoking_history": "current",
+        "other_diseases": []
+      },
+      "why_this_result": "Diabetes risk was detected because your HbA1c level is above the normal range, you have high blood pressure.",
+      "timestamp": "2025-12-31T17:59:18.816049"
+    },
+    "chat_history": [
+      {
+        "user": "hi",
+        "bot": "Hello! I'm DiaAssist, your diabetes care assistant. How can I help you with your diabetes care today?",
+        "timestamp": "2025-12-31T17:26:15.226416"
+      },
+      {
+        "user": "what is my BMI",
+        "bot": ". I can't provide your BMI without a health assessment.\n. Please fill out the assessment to get personalized advice.\n. This will help me understand your HbA1c, glucose level, and BMI.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:26:30.217761"
+      },
+      {
+        "user": "Am i diabetic?",
+        "bot": ". I can't determine your diabetes status without a health assessment.\n. Please fill out the assessment to get personalized advice.\n. This will help me understand your HbA1c, glucose level, and BMI.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:26:53.738813"
+      },
+      {
+        "user": "what is my glucose level?",
+        "bot": ". I can't provide your glucose level without a health assessment.\n. Please fill out the assessment to get personalized advice.\n. This will help me understand your HbA1c, glucose level, and BMI.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:51:16.742701"
+      },
+      {
+        "user": "what is my glucose level?",
+        "bot": ". I've answered your glucose level question before.\n. Please fill out the health assessment to get personalized advice.\n. This will help me understand your HbA1c, glucose level, and BMI.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:51:36.947763"
+      },
+      {
+        "user": "what is my glucose level?",
+        "bot": ". I've answered your glucose level question before.\n. Please fill out the health assessment to get personalized advice.\n. This will help me understand your HbA1c, glucose level, and BMI.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:55:16.809507"
+      },
+      {
+        "user": "what is my glucose level and BMI?",
+        "bot": ". I've answered your glucose level and BMI questions before.\n. Please fill out the health assessment to get personalized advice.\n. This will help me understand your HbA1c, glucose level, and BMI.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:55:39.281042"
+      },
+      {
+        "user": "what is my glucose level",
+        "bot": ". Your glucose level of 120.0 mg/dL is higher than normal.\n. Normal glucose: 70-99 mg/dL after fasting\n. Action: Monitor levels daily and consider adjusting your diet and exercise routine.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:56:16.456365"
+      },
+      {
+        "user": "what is my BMI?",
+        "bot": ". Your BMI of 21.0 is within the normal range.\n. According to the BMI classification, a BMI of 21.0 falls into the \"normal weight\" category.\n. This is a healthy indicator for your overall weight status.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:56:26.387261"
+      },
+      {
+        "user": "what is BMI?",
+        "bot": ". Your BMI of 21.0 is within the normal range.\n. According to the BMI classification, a BMI of 21.0 falls into the \"normal weight\" category.\n. This is a healthy indicator for your overall weight status.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:56:38.676891"
+      },
+      {
+        "user": "what is my current hba1c?",
+        "bot": ". Your current HbA1c level is 7.0%, indicating a prediabetic state.\n. Normal glucose levels are 70-99 mg/dL after fasting.\n. Your glucose level of 120.0 mg/dL is higher than normal.\n. Action: Monitor levels daily and consider adjusting your diet and exercise routine.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:56:55.163289"
+      },
+      {
+        "user": "Am i diabetic?",
+        "bot": ". Your HbA1c of 7.0% indicates a prediabetic state.\n. Normal glucose: 70-99 mg/dL after fasting\n. Your glucose level of 120.0 mg/dL is higher than normal.\n. Action: Monitor levels daily and consider adjusting your diet and exercise routine.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:58:14.526263"
+      },
+      {
+        "user": "Am i getting diabetes?",
+        "bot": ". Your HbA1c of 7.0% indicates a prediabetic state.\n. Normal glucose: 70-99 mg/dL after fasting\n. Your glucose level of 120.0 mg/dL is higher than normal.\n. Action: Monitor levels daily and consider adjusting your diet and exercise routine.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:58:42.997426"
+      },
+      {
+        "user": "Am i diabetic?",
+        "bot": ". Your HbA1c of 9.0% indicates a diabetic state.\n. Normal glucose: 70-99 mg/dL after fasting\n. Your glucose level of 99.0 mg/dL is within the normal range, but your HbA1c suggests diabetes.\n. Action: Consult your doctor for personalized treatment and management strategies.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:59:32.459339"
+      },
+      {
+        "user": "hi",
+        "bot": "Hello! I'm DiaAssist, your diabetes care assistant. How can I help you with your diabetes care today?",
+        "timestamp": "2025-12-31T17:59:48.868973"
+      },
+      {
+        "user": "Am i diabetic?",
+        "bot": ". Your HbA1c of 9.0% indicates a diabetic state.\n. Normal glucose: 70-99 mg/dL after fasting\n. Your glucose level of 99.0 mg/dL is within the normal range, but your HbA1c suggests diabetes.\n. Action: Consult your doctor for personalized treatment and management strategies.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T17:59:56.723896"
+      },
+      {
+        "user": "what is my BMI?",
+        "bot": ". Your BMI of 21.0 is within the normal range.\n. According to the BMI classification, a BMI of 21.0 falls into the \"normal weight\" category.\n. This is a healthy indicator for your overall weight status, but consider managing your hypertension and diabetes risk.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2025-12-31T18:00:06.867213"
+      }
+    ]
+  },
+  "1": {
+    "user_id": "1",
+    "created_at": "2026-01-05T15:11:40.327112",
+    "updated_at": "2026-01-05T17:51:49.949660",
+    "ml_result": {
+      "user_id": "1",
+      "prediction": 0,
+      "message": "No Diabetes Detected",
+      "diet_plan": {
+        "age_group": "child",
+        "daily_calories": 1690,
+        "macros": {
+          "carbs_g": 232,
+          "protein_g": 84,
+          "fat_g": 46
+        },
+        "meal_plan": {
+          "breakfast": {
+            "veg": [
+              {
+                "food": "Ragi / oats porridge",
+                "quantity_g": 77
+              },
+              {
+                "food": "Milk / paneer",
+                "quantity_g": 28
+              }
+            ],
+            "non_veg": [
+              {
+                "food": "Boiled egg",
+                "quantity_g": 28
+              }
+            ]
+          },
+          "lunch": {
+            "veg": [
+              {
+                "food": "Rice / millet",
+                "quantity_g": 77
+              },
+              {
+                "food": "Dal / rajma",
+                "quantity_g": 28
+              },
+              {
+                "food": "Vegetables",
+                "quantity_g": 150
+              }
+            ],
+            "non_veg": [
+              {
+                "food": "Rice / millet",
+                "quantity_g": 77
+              },
+              {
+                "food": "Fish / chicken",
+                "quantity_g": 28
+              },
+              {
+                "food": "Vegetables",
+                "quantity_g": 150
+              }
+            ]
+          },
+          "dinner": {
+            "veg": [
+              {
+                "food": "Roti",
+                "quantity_g": 77
+              },
+              {
+                "food": "Paneer / tofu",
+                "quantity_g": 28
+              },
+              {
+                "food": "Vegetables",
+                "quantity_g": 150
+              }
+            ],
+            "non_veg": [
+              {
+                "food": "Roti",
+                "quantity_g": 77
+              },
+              {
+                "food": "Fish / chicken",
+                "quantity_g": 28
+              },
+              {
+                "food": "Vegetables",
+                "quantity_g": 150
+              }
+            ]
+          }
+        },
+        "notes": {
+          "child": "Growth-focused diet. Avoid calorie restriction."
+        },
+        "source": "ICMR & NIN Dietary Guidelines (India)"
+      },
+      "user_data": {
+        "age": 0,
+        "gender": "string",
+        "bmi": 0.0,
+        "HbA1c_level": 0.0,
+        "blood_glucose_level": 0.0,
+        "hypertension": 0,
+        "heart_disease": 0,
+        "smoking_history": "string",
+        "other_diseases": []
+      },
+      "why_this_result": "",
+      "timestamp": "2026-01-05T17:50:22.110940"
+    },
+    "chat_history": [
+      {
+        "user": "hi",
+        "bot": "Hello! I'm DiaAssist, your diabetes care assistant. How can I help you with your diabetes care today?",
+        "timestamp": "2026-01-05T15:11:56.554920"
+      },
+      {
+        "user": "suggest food to avoid diabetes",
+        "bot": ". Since your HbA1c is 0.0% and glucose is 0.0 mg/dL, you're at a low risk for developing diabetes.\n. Focus on maintaining a healthy lifestyle, including a balanced diet and regular exercise.\n. Include foods rich in fiber, vitamins, and minerals, such as fruits, vegetables, whole grains, and lean proteins.\n. Limit sugary drinks and refined carbohydrates, which can increase blood sugar levels.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2026-01-05T15:12:29.781934"
+      },
+      {
+        "user": "hi",
+        "bot": "Hello! I'm DiaAssist, your diabetes care assistant. How can I help you with your diabetes care today?",
+        "timestamp": "2026-01-05T16:55:35.107391"
+      },
+      {
+        "user": "do i have diabetes",
+        "bot": ". Your HbA1c of 0.0% and glucose of 0.0 mg/dL indicate no diabetes detected.\n. Normal glucose levels are typically between 70-99 mg/dL after fasting.\n. Your current glucose level of 0.0 mg/dL is within the normal range.\n. Action: Maintain a healthy lifestyle, including a balanced diet and regular exercise.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2026-01-05T16:55:49.006913"
+      },
+      {
+        "user": "now how can control my heath",
+        "bot": ". Your HbA1c of 0.0% and glucose of 0.0 mg/dL indicate no diabetes detected.\n. Maintain a healthy lifestyle, including a balanced diet and regular exercise.\n. Monitor your glucose levels daily to ensure they remain within the normal range (70-99 mg/dL after fasting).\n. Consider incorporating stress-reducing activities, such as meditation or yoga, to help manage stress levels.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2026-01-05T16:56:17.127790"
+      },
+      {
+        "user": "suggest non veg",
+        "bot": ". Since your HbA1c is 0.0% and glucose is 0.0 mg/dL, you're at a low risk for developing diabetes.\n. Include lean protein sources like chicken, turkey, and fish in your non-veg diet.\n. Opt for low-fat dairy products and whole grains to maintain a balanced diet.\n. Limit processed and high-sodium foods to prevent hypertension.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2026-01-05T16:56:38.555162"
+      },
+      {
+        "user": "can i eat chicken?",
+        "bot": "Hello! I'm DiaAssist, your diabetes care assistant. How can I help you with your diabetes care today?",
+        "timestamp": "2026-01-05T17:21:45.357350"
+      },
+      {
+        "user": "can i eat banana",
+        "bot": ". Your HbA1c of 0.0% and glucose of 0.0 mg/dL indicate no diabetes detected.\n. Bananas are a good source of fiber, vitamins, and minerals, making them a healthy choice.\n. However, be mindful of the carbohydrate content in bananas, which can affect blood sugar levels.\n. Consider pairing bananas with protein or healthy fats to balance the meal.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2026-01-05T17:21:57.806424"
+      },
+      {
+        "user": "can i drink alcohol",
+        "bot": ". Your HbA1c of 0.0% and glucose of 0.0 mg/dL indicate no diabetes detected.\n. Moderate alcohol consumption (1-2 drinks per day) is generally safe for people without diabetes.\n. However, be mindful of the carbohydrate content in alcoholic beverages, which can affect blood sugar levels.\n. Consider pairing drinks with protein or healthy fats to balance the meal.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2026-01-05T17:22:18.478710"
+      },
+      {
+        "user": "give me diet?",
+        "bot": ". Your HbA1c of 0.0% indicates no diabetes detected.\n. Normal glucose: 70-99 mg/dL after fasting\n. Your glucose level of 0.0 mg/dL is within the normal range.\n. Action: Focus on a balanced diet with lean protein sources, whole grains, and low-fat dairy products.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2026-01-05T17:22:39.719179"
+      },
+      {
+        "user": "hi",
+        "bot": "Hello! I'm DiaAssist, your diabetes care assistant. How can I help you with your diabetes care today?",
+        "timestamp": "2026-01-05T17:35:06.585055"
+      },
+      {
+        "user": "do i have diabetes",
+        "bot": ". Your HbA1c of 0.0% indicates No Diabetes Detected.\n. Normal glucose: 70-99 mg/dL after fasting\n. Your glucose level of 0.0 mg/dL is within the normal range.\n. Action: Maintain a healthy lifestyle, including a balanced diet and regular exercise.\n. Please consult your doctor for personalized treatment changes or emergencies.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2026-01-05T17:35:19.416095"
+      },
+      {
+        "user": "hi",
+        "bot": "Hello! I'm DiaAssist, your diabetes care assistant. How can I help you with your diabetes care today?",
+        "timestamp": "2026-01-05T17:50:34.638700"
+      },
+      {
+        "user": "suggest food for me non veg",
+        "bot": "1. Since your HbA1c is 0.0% and glucose is 0.0 mg/dL, you're at a low risk for developing diabetes.\n2. Include lean protein sources like chicken, turkey, and fish in your non-veg diet.\n3. Opt for low-fat dairy products and whole grains to maintain a balanced diet.\n4. Limit processed and high-sodium foods to prevent hypertension.\n5. Consider incorporating healthy fats like nuts and seeds to balance your meals.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2026-01-05T17:50:51.089577"
+      },
+      {
+        "user": "can eat chicken",
+        "bot": "Hello! I'm DiaAssist, your diabetes care assistant. How can I help you with your diabetes care today?",
+        "timestamp": "2026-01-05T17:51:32.983162"
+      },
+      {
+        "user": "can eat banana",
+        "bot": "1. Yes.\n2. Bananas are a good source of fiber, vitamins, and minerals, making them a healthy choice.\n3. However, be mindful of the carbohydrate content in bananas, which can affect blood sugar levels.\n4. Consider pairing bananas with protein or healthy fats to balance the meal.\n5. Given your HbA1c of 0.0% and glucose of 0.0 mg/dL, bananas are a safe choice for you.\n\nPlease consult your doctor for personalized treatment changes or emergencies.",
+        "timestamp": "2026-01-05T17:51:49.949660"
+      }
+    ]
+  }
+}

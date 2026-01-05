@@ -1,24 +1,30 @@
-# Python cache
-__pycache__/
-*.pyc
-
-# Virtual environments
+# Python virtual environments
 venv/
 .venv/
 
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local build artifacts
+build/
+dist/
+*.egg-info/
+
+# Logs (optional)
 
 
-# Git
-.git/
-.gitignore
+# Vector index files (generated at runtime)
+vector_index/
+*.pkl
+*.index
 
-# OS files
+# OS-specific files
 .DS_Store
 Thumbs.db
 
-# IDE settings
+# Editor / IDE settings
 .vscode/
 .idea/
-
-# Logs
-*.log

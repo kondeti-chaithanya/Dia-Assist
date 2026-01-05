@@ -3851,7 +3851,9 @@ KŧǁĕǀĕƍȕȾŧ ĭơĕŜȕȾćĵĺőĎƍĕŜȾ ëƍĕȾƕŧőĕőǇȾĆƍĕ 
 DPNQMFNFOUBSZGPPETUPUIFJOGBOUTPPOBGUFSTJYNPOUITPGBHF
 (6*%&-*/&
 3"5*0/"-&
-)PNFNBEFQSFQBSBUJPOTBSFFDPOPNJDBMFBTZUPDPPL
+)PNFNBEFQSFQBSBUJPOTBSFFDPOPNJDBM
+FBTZUPDPPL
+
 TBGFBOEIFBMUIZGPSBHSPXJOHCBCZ
 Pn¡ȮpëơĺŧŜëőȾPŜƕơĺơƩơĕȾŧ ĭȾpƩơƍĺơĺŧŜ $ĺĕơ ëƍǇȾDƩĺĎĕőĺŜĕƕȾ ĭŧƍȾPŜĎĺëŜƕ
 ǜǡŚĕĕơȾơĵĕȾĵĺĮĵĕƍȾŜƩơƍĺĕŜơȾƍĕƌƩĺƍĕŚĕŜơƕȾŧ ĭȾĺŜĭëŜơƕȾĭƍŧŚȾƕĺǆȾ
@@ -5186,15 +5188,21 @@ xdĺƊĺĎƕȾćŧŜƕơĺơƩơĕȾŚ ëŋŧƍȾćŧŚƊŧŜĕŜơƕȾŧ ĭȾŚ
 CëơơǇȾëćĹĎƔ ȔȾőőȾĭëơƕȾĺŜȾĭŧŧĎƕȾƊƍŧǀĺĎĕȾŚĺǆơƩƍĕƕȾŧ ĭȾơĵƍĕĕȾơǇƊĕƕȾŧ ĭȾ
 ĭëơơǇȾëćĺĎƕȾȨ©CȕȾ n½CȕȾ½CȩȕȾǁĵĺćĵȾ ëƍĕȾơĵĕȾȸĆƩĺőĎĺŜĮȾĆőŧćŎƕȹȾŧ ĭȾ
 ĭëơƕȚȾCëơơǇȾëćĺĎƕȾëƍĕȾơĵĕȾƊƍĺŚ ëƍǇȾćŧŜƕơĺơƩĕŜơƕȾŧ ĭȾëőőȾĎĺĕơëƍǇȾĭëơƕȾĺŜȾ6TFPJMTGBUTJONPEFSBUJPODIPPTFB
-WBSJFUZPGPJMTFFETOVUTOVUSJDFSFBMTBOEMFHVNFTUPNFFUEBJMZOFFETPGGBUTBOEFTTFOUJBMGBUUZBDJET	&'"
+WBSJFUZPGPJMTFFET
+OVUT
+OVUSJDFSFBMT
+BOEMFHVNFTUPNFFUEBJMZOFFETPGGBUTBOEFTTFOUJBMGBUUZBDJET	&'"
 ¶ƍëŜƕȾĭëơƕȾȨ¶CȩȾëƍĕȾ
 ĵëƍŚĭƩőȾȾëŜĎȾƕĵŧƩőĎȾ
 ĆĕȾëǀŧĺĎĕĎȚȾ
 
-T
+T
+
 (6*%&-*/&
 3"5*0/"-&
-6TJOHBEJWFSTFWBSJFUZPGPJMTFFETOVUTBOEXIPMFHSBJOTQS PWJEFT
+6TJOHBEJWFSTFWBSJFUZPGPJMTFFET
+OVUTBOEXIPMFHSBJOT
+QS PWJEFT
 BCBMBODFPGBMMGBUUZBDJET	MJQJET
 3FGJOFEPSFYUSBDUFEPJM TBSF
 QSPDFTTFEQSPEVDUTIFODFJUJTCFTUUPVTFUIFNJONPEFSBUJPO
@@ -5741,7 +5749,8 @@ Pn¡ȮpëơĺŧŜëőȾPŜƕơĺơƩơĕȾŧ ĭȾpƩơƍĺơĺŧŜ $ĺĕơ ëƍ
 ȓPŜĎĺƕćƍĺŚĺŜ ëơĕȾƩƕĕȾŧĭȾĕǆćĕƕƕȾƊƍŧơĕĺŜȾëƕȾƕƩƊƊőĕŚĕŜơƕ ȾĭŧƍȾ
 ƊƍŧőŧŜĮĕĎ ȾƊĕƍĺŧĎƕȾćëŜȾëĭĭĕćơȾĵĕëőơĵȚ
 Ǡǜ"EPQUBIFBMUIZMJGFTUZMFUPQSFWFOU
-BCEPNJOBMPCFTJUZPWFSXFJHIUBOEPWFSBMMPCFTJUZ
+BCEPNJOBMPCFTJUZ
+PWFSXFJHIUBOEPWFSBMMPCFTJUZ
 xnëƍŎĕĎȾĺŜćƍĕ ëƕĕȾĺŜȾơĵĕȾƊƍĕǀ ëőĕŜćĕȾŧĭȾëĆĎŧŚĺŜëőȾŧĆĕƕĺơǇȾ
 ȨĺŜćƍĕëƕĕĎȾǁëĺƕơȾćĺƍćƩŚ ĭĕƍĕŜćĕȩȕȾŧǀĕƍǁĕĺĮĵơȕȾ ëŜĎȾŧĆĕƕĺơǇȾ
 ëŚŧŜĮȾëőőȾơĵĕȾëĮĕȾĮƍŧƩƊƕȾĺŜȾƍƩƍ ëőȾëŜĎȾƩƍĆëŜȾëƍĕëƕȾĵëƕȾ
@@ -5785,7 +5794,8 @@ PŜȾĮĕŜĕƍëőȕȾnPȾĭŧƍȾëĎƩőơƕȕȾëƕȾƊĕƍȾÕK {ȕȾƍë�
 ǜbĮȠnȾĺƕȾćŧŜƕĺĎĕƍĕĎȾơŧȾĆĕȾŜŧƍŚ ëőȚȾKŧǁĕǀĕƍȕȾ ĭŧƍȾƕĺëŜƕȾĺơȾĺƕȾ
 (6*%&-*/&
 3"5*0/"-&
-#FTJEFTPWFSXFJHIUBOEHFOFSBMPSPWFSBMMPCFTJUZBCEPNJOBMPC FTJUZ
+#FTJEFTPWFSXFJHIUBOEHFOFSBMPSPWFSBMMPCFTJUZ
+BCEPNJOBMPC FTJUZ
 	JODSFBTFEXBJTUDJSDVNGFSFODF
 UIBUJTJOEJDBUJWFPGFYDFTTGB UJOUIF
 QFSJUPOFVN	BCEPNJOBMDBWJUZ
@@ -6092,7 +6102,8 @@ Pn¡ȮpëơĺŧŜëőȾPŜƕơĺơƩơĕȾŧ ĭȾpƩơƍĺơĺŧŜ $ĺĕơ ëƍ
 Ǡǣ
 (6*%&-*/&
 3"5*0/"-&
-3FHVMBSQIZTJDBMBDUJWJUZZPHBBOEFYFSDJTFLFFQPOF
+3FHVMBSQIZTJDBMBDUJWJUZ
+ZPHBBOEFYFSDJTFLFFQPOF
 QIZTJDBMMZBOENFOUBMMZGJUBOEQSPNPUFHPPEIFBMUI
 ȓ ¡ĕĮƩő ëƍȾƊĵǇƕĺćëőȾëćơĺǀĺơǇȕȾǇŧĮ ëȾëŜĎȾĕǆĕƍćĺƕĕȾŧ ĭȾŚŧĎĕƍëơĕȾ
 ĺŜơĕŜƕĺơǇȾ ëƍĕȾƍĕćŧŚŚĕŜĎĕĎȾ ĭŧƍȾĮŧŧĎȾĵĕ ëőơĵȾëŜĎȾǁĕőőĆĕĺŜĮȚ
@@ -6429,7 +6440,8 @@ Pn¡ȮpëơĺŧŜëőȾPŜƕơĺơƩơĕȾŧ ĭȾpƩơƍĺơĺŧŜ $ĺĕơ ëƍ
 (6*%&-*/&
 3"5*0/"-&
 $POUBNJOBUFEBOEBEVMUFSBUFEGPPETDBVTFTFWFSBM
-GPPECPSOFJMMOFTTFTDISPOJDEJTFBTFTBOENBZBMTP
+GPPECPSOFJMMOFTTFT
+DISPOJDEJTFBTFTBOENBZBMTP
 DPOUSJCVUFUPNBMOVUSJUJPO
 Pn¡ȮpëơĺŧŜëőȾPŜƕơĺơƩơĕȾŧ ĭȾpƩơƍĺơĺŧŜ $ĺĕơ ëƍǇȾDƩĺĎĕőĺŜĕƕȾ ĭŧƍȾPŜĎĺëŜƕȓȾŧŜƕƩŚƊơĺŧŜȾŧ ĭȾƕëĭĕȾëŜĎȾĵǇĮĺĕŜĺćȾ ĭŧŧĎƕȾĺƕȾĕƕƕĕŜơĺ ëőȾĭŧƍȾ
 ŚëĺŜơëĺŜĺŜĮȾĮŧŧĎȾĵĕ ëőơĵȚ
@@ -7084,12 +7096,18 @@ Pn¡ȮpëơĺŧŜëőȾPŜƕơĺơƩơĕȾŧ ĭȾpƩơƍĺơĺŧŜ $ĺĕơ ëƍ
 (6*%&-*/&
 3"5*0/"-&
 6MUSBQSPDFTTFEGPPET	61'T
-BSFPGUFOIJHIJOGBUTVHBSBOET BMU
+BSFPGUFOIJHIJOGBU
+TVHBSBOET BMU
 	)'44
 3FHVMBSDPOTVNQUJPOPG61'TPS)'44BSFLOPXOUP
-JODSFBTFUIFSJTLPGOPODPNNVOJDBCMFEJTFBTFTMJLFEJBCFUFTIZQFSUFOTJPODBSEJPWBTDVMBSEJTFBTFTFUD
+JODSFBTFUIFSJTLPGOPODPNNVOJDBCMFEJTFBTFTMJLFEJBCFUFT
+IZQFSUFOTJPO
+DBSEJPWBTDVMBSEJTFBTFT
+FUD
 .JOJNJ[FUIFDPOTVNQUJPOPG
-IJHIGBUTVHBSTBMU	)'44
+IJHIGBU
+TVHBS
+TBMU	)'44
 BOEVMUSBQSPDFTTFEGPPET	61'T
 KC©©ȾĭŧŧĎƕȾĺƕȾĎĕĭĺŜĕĎȾëƕȾëȾ
 ĭŧŧĎȾŧƍȾĎĺĕơȾơĵëơȾćŧŜơëĺŜƕȾɡǛǟȾɳȾ
@@ -7559,7 +7577,8 @@ KëǀĕȾőŧŜĮȾƕĵĕő ĭȾőĺĭĕȾƍëŜĮĺŜĮȾĭƍŧŚȾĭĕǁȾ
 PGUIFFMEFSMZGPSIFBMUIBOEXFMMOFTT
 (6*%&-*/&
 3"5*0/"-&
-5PSFNBJOIFBMUIZBOEBDUJWFFMEFSMZQFSTPOTOFFEGPPET
+5PSFNBJOIFBMUIZBOEBDUJWF
+FMEFSMZQFSTPOTOFFEGPPET
 SJDIJOWJUBNJOTBOENJOFSBMTBMPOHXJUIBEFRVBUF
 QIZTJDBMBDUJWJUZ
 FUT
@@ -7784,8 +7803,10 @@ QH\
 (6*%&-*/&
 3"5*0/"-&
 h.PTUPGUIFGPPEJUFNTBSFOPXBWBJMBCMFJOQSFQBDLBHFEGPSN 
-5IFSFGPSFUIFDPOTVNFSOFFETUPLOPXXIBUJTJOTJEFUIFQBDL
-h'PPEMBCFMTPOBQBDLBHFQSPWJEFJOGPSNBUJPOBCPVUDPOUFOUT
+5IFSFGPSF
+UIFDPOTVNFSOFFETUPLOPXXIBUJTJOTJEFUIFQBDL
+h'PPEMBCFMTPOBQBDLBHFQSPWJEFJOGPSNBUJPOBCPVUDPOUFOUT
+
 JOHSFEJFOUTBOEOVUSJUJPOBMJOGPSNBUJPOBTXFMMBTTIFMGMJGF
 h3FBEJOHUIFMBCFMDBOIFMQUPNBLFBOBTTFTTNFOUPGUIFOVUSJ UJPOBM
 RVBMJUZBOETBGFUZPGUIFGPPETBOENBLFBOJOGPSNFEDIPJDF
