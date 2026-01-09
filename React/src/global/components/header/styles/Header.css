@@ -642,6 +642,7 @@
 }
  
 /* Hide mobile auth buttons on desktop */
+
 .mobile-signin-btn,
 .mobile-logout-btn {
   display: none;

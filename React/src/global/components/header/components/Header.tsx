@@ -103,6 +103,7 @@ const Navbar: React.FC = () => {
               setShowAuth(true);
               setShowMobileMenu(false);
             }}>
+              
               Sign In
             </li>
           )}
