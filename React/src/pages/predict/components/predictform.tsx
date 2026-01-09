@@ -34,6 +34,10 @@ const Predict: React.FC = () => {
     if (!heart_disease) newErrors.heart_disease = "Please select heart disease";
     if (!hypertension) newErrors.hypertension = "Please select hypertension";
 
+    if (!gender) newErrors.gender = "Please select gender";
+  if(!HbA1c_level) newErrors.HbA1c_level = "HBA1C level is required";
+  if(!blood_glucose_level) newErrors.blood_glucose_level = "Blood glucose level is required";
+  if(!bmi) newErrors.bmi = "BMI is required";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -104,10 +108,12 @@ const Predict: React.FC = () => {
               onChange={(e) => setGender(e.target.value)}
               required
             >
+              
               <option value="" disabled>Select</option>
               <option value="Female">Female</option>
               <option value="Male">Male</option>
             </select>
+            {errors.gender && <span className="error-text">{errors.gender}</span>}
           </div>
 
           {/* Age */}
@@ -139,6 +145,7 @@ const Predict: React.FC = () => {
               onChange={(e) => setHbA1cLevel(e.target.value)}
               required
             />
+            {errors.HbA1c_level && <span className="error-text">{errors.HbA1c_level}</span>}
           </div>
 
           {/* Glucose */}
@@ -154,6 +161,7 @@ const Predict: React.FC = () => {
               onChange={(e) => setBloodGlucoseLevel(e.target.value)}
               required
             />
+            {errors.blood_glucose_level && <span className="error-text">{errors.blood_glucose_level}</span>}
           </div>
 
           {/* Smoking */}
@@ -241,6 +249,7 @@ const Predict: React.FC = () => {
               onChange={(e) => setBmi(e.target.value)}
               required
             />
+            {errors.bmi && <span className="error-text">{errors.bmi}</span>}
           </div>
 
           <button className="predict-btn" type="submit" disabled={loading}>
