@@ -99,7 +99,7 @@ const Predict: React.FC = () => {
           {/* Gender */}
           <div className="form-row">
             <label htmlFor="gender" className="form-label">
-              Gender :
+              Gender <sup style={{ color: "red" }}>*</sup> :
             </label>
             <select
               id="gender"
@@ -119,7 +119,7 @@ const Predict: React.FC = () => {
           {/* Age */}
           <div className="form-row">
             <label htmlFor="age" className="form-label">
-              Age :
+              Age <sup style={{ color: "red" }}>*</sup> : 
             </label>
             <input
               id="age"
@@ -135,7 +135,7 @@ const Predict: React.FC = () => {
           {/* HbA1c */}
           <div className="form-row">
             <label htmlFor="hba1c" className="form-label">
-              HBA1C (%) :
+              HBA1C (%) <sup style={{ color: "red" }}>*</sup>:
             </label>
             <input
               id="hba1c"
@@ -151,7 +151,7 @@ const Predict: React.FC = () => {
           {/* Glucose */}
           <div className="form-row">
             <label htmlFor="glucose" className="form-label">
-              Glucose Level (mg/dL) :
+              Glucose Level (mg/dL) <sup style={{ color: "red" }}>*</sup>:
             </label>
             <input
               id="glucose"
@@ -166,7 +166,7 @@ const Predict: React.FC = () => {
 
           {/* Smoking */}
           <div className="form-row">
-            <label className="form-label">Smoking History :</label>
+            <label className="form-label">Smoking History <sup style={{ color: "red" }}>*</sup>:</label>
             <div className="simple-buttons">
               <button
                 type="button"
@@ -190,7 +190,7 @@ const Predict: React.FC = () => {
 
           {/* Heart Disease */}
           <div className="form-row">
-            <label className="form-label">Heart Disease :</label>
+            <label className="form-label">Heart Disease <sup style={{ color: "red" }}>*</sup> :</label>
             <div className="simple-buttons">
               <button
                 type="button"
@@ -214,7 +214,7 @@ const Predict: React.FC = () => {
 
           {/* Hypertension */}
           <div className="form-row">
-            <label className="form-label">Hypertension :</label>
+            <label className="form-label">Hypertension  <sup style={{ color: "red" }}>*</sup>:</label>
             <div className="simple-buttons">
               <button
                 type="button"
@@ -239,7 +239,7 @@ const Predict: React.FC = () => {
           {/* BMI */}
           <div className="form-row">
             <label htmlFor="bmi" className="form-label">
-              BMI :
+              BMI <sup style={{ color: "red" }}>*</sup>:
             </label>
             <input
               id="bmi"
