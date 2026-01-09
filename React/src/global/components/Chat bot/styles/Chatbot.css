@@ -316,3 +316,14 @@
     margin-top: 0;
   }
 }
+  .bot-numbered-list {
+  padding-left: 22px;
+  margin: 0;
+  text-align: left;
+}
+ 
+.bot-numbered-list li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+  list-style-position: outside;
+}

@@ -3,21 +3,21 @@ import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "@/auth/AuthContext";
 import "../styles/Chatbot.css";
-
+ 
 interface Message {
   text: string;
   sender: "user" | "bot";
 }
-
+ 
 interface ChatbotProps {
   isFullPage?: boolean;
 }
-
+ 
 const Chatbot: React.FC<ChatbotProps> = ({ isFullPage = false }) => {
   const { isAuthenticated, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-
+ 
   const [open, setOpen] = useState(isFullPage ? true : false);
   const [messages, setMessages] = useState<Message[]>([
     { text: "Hi 👋 How can I help you?", sender: "bot" },
@@ -25,20 +25,20 @@ const Chatbot: React.FC<ChatbotProps> = ({ isFullPage = false }) => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
+ 
   const chatEndRef = useRef<HTMLDivElement | null>(null);
-
+ 
   // Only hide floating button on protected pages if not authenticated
   if (!isFullPage && !isAuthenticated && loading && location.pathname !== "/") {
     return null; // Don't show floating button if not authenticated on protected pages
   }
-
+ 
   const toggleChat = () => setOpen(!open);
-
+ 
   // Enhanced sendMessage with error handling and login redirect
   const sendMessage = async () => {
     if (!input.trim()) return;
-
+ 
     // If not authenticated, redirect to home with login modal
     if (!isAuthenticated) {
       // Show login prompt on home page
@@ -52,13 +52,13 @@ const Chatbot: React.FC<ChatbotProps> = ({ isFullPage = false }) => {
       }
       return;
     }
-
+ 
     const userMsg: Message = { text: input, sender: "user" };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
     setError(null);
     setIsLoading(true);
-
+ 
     try {
       // Use axios with credentials to send HttpOnly cookie automatically
       const response = await axios.post(
@@ -69,26 +69,26 @@ const Chatbot: React.FC<ChatbotProps> = ({ isFullPage = false }) => {
             "Content-Type": "application/json",
           },
           withCredentials: true, // Send HttpOnly cookie automatically
-          timeout: 10000, // 10 second timeout
+          timeout: 100000, // 100 second timeout
         }
       );
-
+ 
       // Validate response
       if (!response.data || !response.data.answer) {
         throw new Error("Invalid response from chatbot");
       }
-
+ 
       const botMsg: Message = {
         text: response.data.answer,
         sender: "bot",
       };
-
+ 
       setMessages((prev) => [...prev, botMsg]);
     } catch (error: any) {
       console.error(" Chatbot Error:", error);
-
+ 
       let errorMessage = " Unable to connect to chatbot";
-
+ 
       // Handle specific error types
       if (error.response?.status === 401) {
         errorMessage = " Session expired. Please login again";
@@ -104,7 +104,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isFullPage = false }) => {
       } else if (error.response?.data?.message) {
         errorMessage = ` ${error.response.data.message}`;
       }
-
+ 
       const errorMsg: Message = {
         text: errorMessage,
         sender: "bot",
@@ -115,14 +115,56 @@ const Chatbot: React.FC<ChatbotProps> = ({ isFullPage = false }) => {
       setIsLoading(false);
     }
   };
-
+ 
   // Auto-scroll to latest message and when chat is opened
   useEffect(() => {
     if (open) {
       chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, open]);
+ 
+const formatBotMessage = (text: string) => {
+  const lines = text
+    .replace(/\r\n/g, "\n")
+    .replace(/\n+/g, "\n")
+    .split("\n");
 
+  const points: string[] = [];
+  let currentPoint = "";
+
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+
+    if (/^\d+\./.test(trimmed)) {
+      if (currentPoint) {
+        points.push(currentPoint.trim());
+      }
+      currentPoint = trimmed.replace(/^\d+\.\s*/, "");
+    } else {
+      if (trimmed) {
+        currentPoint += " " + trimmed;
+      }
+    }
+  });
+
+  if (currentPoint) {
+    points.push(currentPoint.trim());
+  }
+
+  // KEY FIX: Only show numbering if MORE THAN ONE point
+  if (points.length <= 1) {
+    return <span>{text}</span>;
+  }
+
+  return (
+    <ol className="bot-numbered-list">
+      {points.map((point, index) => (
+        <li key={index}>{point}</li>
+      ))}
+    </ol>
+  );
+};
+ 
   return (
     <>
       {/* Robo Button - Always show (visible on all pages including home) */}
@@ -135,7 +177,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isFullPage = false }) => {
           🤖
         </div>
       )}
-
+ 
       {/* Chat Window */}
       {open && (
         <div
@@ -155,14 +197,14 @@ const Chatbot: React.FC<ChatbotProps> = ({ isFullPage = false }) => {
               </button>
             )}
           </div>
-
+ 
           <div className="chat-body">
             {messages.map((msg, index) => (
               <div
                 key={index}
                 className={msg.sender === "user" ? "user-msg" : "bot-msg"}
               >
-                {msg.text}
+                {msg.sender === "bot" ? formatBotMessage(msg.text) : msg.text}
               </div>
             ))}
             {isLoading && (
@@ -176,13 +218,13 @@ const Chatbot: React.FC<ChatbotProps> = ({ isFullPage = false }) => {
             )}
             <div ref={chatEndRef} />
           </div>
-
+ 
           {error && (
             <div className="chat-error" role="alert">
               {error}
             </div>
           )}
-
+ 
           <div className="chat-footer">
             <input
               type="text"
@@ -213,5 +255,5 @@ const Chatbot: React.FC<ChatbotProps> = ({ isFullPage = false }) => {
     </>
   );
 };
-
+ 
 export default Chatbot;
