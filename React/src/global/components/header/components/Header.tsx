@@ -95,7 +95,7 @@ const Navbar: React.FC = () => {
               setShowMobileMenu(false);
               navigate("/");
             }}>
-              {/* Sign Out */}
+              Sign Out
             </li>
           ) : (
             <li className="mobile-signin-btn" onClick={() => {
@@ -103,6 +103,7 @@ const Navbar: React.FC = () => {
               setShowAuth(true);
               setShowMobileMenu(false);
             }}>
+              
               Sign In
             </li>
           )}
